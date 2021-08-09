@@ -5614,3 +5614,7 @@ Caused by: org.firebirdsql.jdbc.FBSQLExceptionInfo: violation of PRIMARY or UNIQ
 09.08.2021 15:38:11 INFO  :233 - ### Aplicação inciada! ###
 09.08.2021 15:38:11 INFO  :1329 - # Carregando empresas no sistema, aguarde...
 09.08.2021 15:38:11 INFO  :1338 - # Empresas carregadas com sucesso.
+09.08.2021 16:26:12 INFO  :232 - ########################
+09.08.2021 16:26:12 INFO  :233 - ### Aplicação inciada! ###
+09.08.2021 16:26:12 INFO  :1329 - # Carregando empresas no sistema, aguarde...
+09.08.2021 16:26:12 INFO  :1338 - # Empresas carregadas com sucesso.
