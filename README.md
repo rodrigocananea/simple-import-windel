@@ -1,2 +1,2 @@
 # Simple Import
-Aplicativo para importação de arquivo em Excel/CSV para o banco de dados Windel
+Aplicativo para importação de arquivo em CSV/TXT para o banco de dados Windel
