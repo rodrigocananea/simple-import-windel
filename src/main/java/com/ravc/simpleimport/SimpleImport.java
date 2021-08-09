@@ -23,11 +23,14 @@ public class SimpleImport {
 
     public static void main(String[] args) {
         SIProp = new SimpleImportProp();
-
-        if (SIProp.prop().getString("tema", "Dark").equals("Dark")) {
+        String theme = SIProp.prop().getString("tema", "Dark");
+        
+        if (theme.equals("Dark")) {
             FlatOneDarkIJTheme.install();
-        } else {
+        } else if (theme.equals("Light")) {
             FlatIntelliJLaf.install();
+        } else {
+            FlatOneDarkIJTheme.install();
         }
 
         validateLocalCfg();

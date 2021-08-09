@@ -9,6 +9,7 @@ import static com.ravc.simpleimport.SimpleImport.SIProp;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class Database {
 
@@ -17,10 +18,11 @@ public class Database {
     private String password;
     private Connection connection;
 
-    public Database() throws SQLException {
-        this.url = "jdbc:firebirdsql:native:"
-                + SIProp.prop().getString("host.name", "localhost") + "/" + SIProp.prop().getString("host.port", "3050")
-                + ":" + SIProp.prop().getString("host.database")
+    public Database() throws SQLException, ClassNotFoundException {
+        this.url = "jdbc:firebirdsql:local:"
+//                + SIProp.prop().getString("host.name", "localhost") + "/" + SIProp.prop().getString("host.port", "3050")
+//                + ":" 
+                + SIProp.prop().getString("host.database")
                 + SIProp.prop().getString("host.params", "");
         this.userName = SIProp.prop().getString("host.user", "SYSDBA");
         this.password = SIProp.prop().getString("host.password", "masterkey");
@@ -51,8 +53,14 @@ public class Database {
         this.password = password;
     }
 
-    private void setConnection() throws SQLException {
-        connection = DriverManager.getConnection(url, userName, password);
+    private void setConnection() throws SQLException, ClassNotFoundException {
+        Class.forName("org.firebirdsql.jdbc.FBDriver"); 
+        Properties props = new Properties();
+
+        props.setProperty("user", userName);
+        props.setProperty("password", password);
+        props.setProperty("encoding", "UTF8");
+        connection = DriverManager.getConnection(url, props);
     }
 
     public Connection getConnection() {
