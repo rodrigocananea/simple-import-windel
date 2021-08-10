@@ -5618,3 +5618,59 @@ Caused by: org.firebirdsql.jdbc.FBSQLExceptionInfo: violation of PRIMARY or UNIQ
 09.08.2021 16:26:12 INFO  :233 - ### Aplicação inciada! ###
 09.08.2021 16:26:12 INFO  :1329 - # Carregando empresas no sistema, aguarde...
 09.08.2021 16:26:12 INFO  :1338 - # Empresas carregadas com sucesso.
+09.08.2021 21:36:46 INFO  :232 - ########################
+09.08.2021 21:36:46 INFO  :233 - ### Aplicação inciada! ###
+09.08.2021 21:36:46 INFO  :1900 - # Carregando empresas no sistema, aguarde...
+09.08.2021 21:36:47 INFO  :1909 - # Empresas carregadas com sucesso.
+09.08.2021 21:50:53 INFO  :260 - ########################
+09.08.2021 21:50:53 INFO  :261 - ### Aplicação inciada! ###
+09.08.2021 21:50:53 INFO  :1855 - # Carregando empresas no sistema, aguarde...
+09.08.2021 21:50:53 INFO  :1864 - # Empresas carregadas com sucesso.
+09.08.2021 21:51:40 INFO  :260 - ########################
+09.08.2021 21:51:40 INFO  :261 - ### Aplicação inciada! ###
+09.08.2021 21:51:40 INFO  :1855 - # Carregando empresas no sistema, aguarde...
+09.08.2021 21:51:41 INFO  :1864 - # Empresas carregadas com sucesso.
+09.08.2021 21:53:38 INFO  :260 - ########################
+09.08.2021 21:53:39 INFO  :261 - ### Aplicação inciada! ###
+09.08.2021 21:53:39 INFO  :1855 - # Carregando empresas no sistema, aguarde...
+09.08.2021 21:53:39 INFO  :1864 - # Empresas carregadas com sucesso.
+09.08.2021 21:54:41 INFO  :260 - ########################
+09.08.2021 21:54:41 INFO  :261 - ### Aplicação inciada! ###
+09.08.2021 21:54:41 INFO  :1855 - # Carregando empresas no sistema, aguarde...
+09.08.2021 21:54:41 INFO  :1864 - # Empresas carregadas com sucesso.
+09.08.2021 21:55:19 INFO  :260 - ########################
+09.08.2021 21:55:19 INFO  :261 - ### Aplicação inciada! ###
+09.08.2021 21:55:19 INFO  :1855 - # Carregando empresas no sistema, aguarde...
+09.08.2021 21:55:19 INFO  :1864 - # Empresas carregadas com sucesso.
+09.08.2021 21:55:39 INFO  :260 - ########################
+09.08.2021 21:55:39 INFO  :261 - ### Aplicação inciada! ###
+09.08.2021 21:55:39 INFO  :1855 - # Carregando empresas no sistema, aguarde...
+09.08.2021 21:55:39 INFO  :1864 - # Empresas carregadas com sucesso.
+09.08.2021 21:56:52 INFO  :260 - ########################
+09.08.2021 21:56:52 INFO  :261 - ### Aplicação inciada! ###
+09.08.2021 21:56:52 INFO  :1856 - # Carregando empresas no sistema, aguarde...
+09.08.2021 21:56:53 INFO  :1865 - # Empresas carregadas com sucesso.
+09.08.2021 21:57:46 INFO  :260 - ########################
+09.08.2021 21:57:46 INFO  :261 - ### Aplicação inciada! ###
+09.08.2021 21:57:46 INFO  :1857 - # Carregando empresas no sistema, aguarde...
+09.08.2021 21:57:46 INFO  :1866 - # Empresas carregadas com sucesso.
+09.08.2021 21:58:43 INFO  :260 - ########################
+09.08.2021 21:58:43 INFO  :261 - ### Aplicação inciada! ###
+09.08.2021 21:58:43 INFO  :1857 - # Carregando empresas no sistema, aguarde...
+09.08.2021 21:58:43 INFO  :1866 - # Empresas carregadas com sucesso.
+09.08.2021 21:59:29 INFO  :260 - ########################
+09.08.2021 21:59:29 INFO  :261 - ### Aplicação inciada! ###
+09.08.2021 21:59:29 INFO  :1857 - # Carregando empresas no sistema, aguarde...
+09.08.2021 21:59:29 INFO  :1866 - # Empresas carregadas com sucesso.
+09.08.2021 22:00:59 INFO  :260 - ########################
+09.08.2021 22:00:59 INFO  :261 - ### Aplicação inciada! ###
+09.08.2021 22:00:59 INFO  :1857 - # Carregando empresas no sistema, aguarde...
+09.08.2021 22:00:59 INFO  :1866 - # Empresas carregadas com sucesso.
+09.08.2021 22:02:21 INFO  :260 - ########################
+09.08.2021 22:02:21 INFO  :261 - ### Aplicação inciada! ###
+09.08.2021 22:02:21 INFO  :1857 - # Carregando empresas no sistema, aguarde...
+09.08.2021 22:02:21 INFO  :1866 - # Empresas carregadas com sucesso.
+09.08.2021 22:03:15 INFO  :260 - ########################
+09.08.2021 22:03:16 INFO  :261 - ### Aplicação inciada! ###
+09.08.2021 22:03:16 INFO  :1859 - # Carregando empresas no sistema, aguarde...
+09.08.2021 22:03:16 INFO  :1868 - # Empresas carregadas com sucesso.

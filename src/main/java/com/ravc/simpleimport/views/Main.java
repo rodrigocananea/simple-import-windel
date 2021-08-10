@@ -116,6 +116,34 @@ public class Main extends javax.swing.JFrame {
         jtfClientesEmail.setDocument(new UpperCase());
         jtfClientesCEP.setDocument(new UpperCase());
 
+        jtfProdutosCodBarras.setVisible(false);
+        jtfProdutosDescricao.setVisible(false);
+        jtfProdutosUnMed.setVisible(false);
+        jtfProdutosMarca.setVisible(false);
+        jtfProdutosCategoria.setVisible(false);
+        jtfProdutosEstMin.setVisible(false);
+        jtfProdutosEstAtual.setVisible(false);
+        jtfProdutosVlrCusto.setVisible(false);
+        jtfProdutosVlrVenda.setVisible(false);
+        jtfProdutosRef.setVisible(false);
+        jtfProdutosClassFiscal.setVisible(false);
+        jtfProdutosSitTrib.setVisible(false);
+        jtfProdutosCFOP.setVisible(false);
+        
+        jtfProdutosCodBarras.setDocument(new UpperCase());
+        jtfProdutosDescricao.setDocument(new UpperCase());
+        jtfProdutosUnMed.setDocument(new UpperCase());
+        jtfProdutosMarca.setDocument(new UpperCase());
+        jtfProdutosCategoria.setDocument(new UpperCase());
+        jtfProdutosEstMin.setDocument(new UpperCase());
+        jtfProdutosEstAtual.setDocument(new UpperCase());
+        jtfProdutosVlrCusto.setDocument(new UpperCase());
+        jtfProdutosVlrVenda.setDocument(new UpperCase());
+        jtfProdutosRef.setDocument(new UpperCase());
+        jtfProdutosClassFiscal.setDocument(new UpperCase());
+        jtfProdutosSitTrib.setDocument(new UpperCase());
+        jtfProdutosCFOP.setDocument(new UpperCase());
+
         jbInfo.putClientProperty("JButton.buttonType", "roundRect");
 
         excelCols = new ArrayList<>();
@@ -252,6 +280,9 @@ public class Main extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jtaLogs = new javax.swing.JTextArea();
         jpFields = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jcbEmpresa = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -289,18 +320,44 @@ public class Main extends javax.swing.JFrame {
         jcbClientesEndereco = new javax.swing.JCheckBox();
         jtfClientesComplemento = new javax.swing.JTextField();
         jcbClientesNumero = new javax.swing.JCheckBox();
-        jcbHeaderExists = new javax.swing.JCheckBox();
+        jcbHeaderExistsClient = new javax.swing.JCheckBox();
         jtfFormatDateNasc = new javax.swing.JTextField();
         jlFormat = new javax.swing.JLabel();
         jbInfo = new javax.swing.JButton();
         jlInfoCidade = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jcbEmpresa = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jtfPathProductsFile = new javax.swing.JTextField();
         jbSeachFileProducts = new javax.swing.JButton();
         jbImportProducts = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jcbProdutosCodBarras = new javax.swing.JCheckBox();
+        jtfProdutosCodBarras = new javax.swing.JTextField();
+        jcbProdutosDescricao = new javax.swing.JCheckBox();
+        jtfProdutosDescricao = new javax.swing.JTextField();
+        jcbProdutosRef = new javax.swing.JCheckBox();
+        jtfProdutosRef = new javax.swing.JTextField();
+        jcbProdutosUnMed = new javax.swing.JCheckBox();
+        jtfProdutosUnMed = new javax.swing.JTextField();
+        jcbProdutosEstMin = new javax.swing.JCheckBox();
+        jtfProdutosEstMin = new javax.swing.JTextField();
+        jtfProdutosEstAtual = new javax.swing.JTextField();
+        jcbProdutosEstAtual = new javax.swing.JCheckBox();
+        jtfProdutosVlrVenda = new javax.swing.JTextField();
+        jtfProdutosVlrCusto = new javax.swing.JTextField();
+        jcbProdutosVlrCusto = new javax.swing.JCheckBox();
+        jcbProdutosVlrVenda = new javax.swing.JCheckBox();
+        jtfProdutosMarca = new javax.swing.JTextField();
+        jcbProdutosMarca = new javax.swing.JCheckBox();
+        jcbProdutosCategoria = new javax.swing.JCheckBox();
+        jtfProdutosCategoria = new javax.swing.JTextField();
+        jcbProdutosSitTrib = new javax.swing.JCheckBox();
+        jtfProdutosSitTrib = new javax.swing.JTextField();
+        jcbProdutosCFOP = new javax.swing.JCheckBox();
+        jtfProdutosCFOP = new javax.swing.JTextField();
+        jtfProdutosClassFiscal = new javax.swing.JTextField();
+        jcbProdutosClassFiscal = new javax.swing.JCheckBox();
+        jcbHeaderExistsProducts = new javax.swing.JCheckBox();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -310,14 +367,20 @@ public class Main extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jmiExit = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Simple Import");
         setMaximumSize(null);
-        setMinimumSize(new java.awt.Dimension(1124, 486));
-        setPreferredSize(new java.awt.Dimension(1124, 486));
+        setMinimumSize(new java.awt.Dimension(1124, 524));
+        setPreferredSize(new java.awt.Dimension(1124, 524));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 1, 1, 1));
         jPanel1.setLayout(new java.awt.BorderLayout());
@@ -335,6 +398,10 @@ public class Main extends javax.swing.JFrame {
         jtaLogs.setColumns(20);
         jtaLogs.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jtaLogs.setRows(5);
+        jtaLogs.setBorder(null);
+        jtaLogs.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jtaLogs.setFocusable(false);
+        jtaLogs.setRequestFocusEnabled(false);
         jScrollPane2.setViewportView(jtaLogs);
 
         jpLog.add(jScrollPane2, java.awt.BorderLayout.CENTER);
@@ -343,6 +410,36 @@ public class Main extends javax.swing.JFrame {
 
         jpFields.setPreferredSize(new java.awt.Dimension(580, 389));
         jpFields.setLayout(new java.awt.BorderLayout());
+
+        jPanel5.setPreferredSize(new java.awt.Dimension(580, 60));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setText("Empresa:");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jcbEmpresa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(0, 505, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jcbEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jpFields.add(jPanel5, java.awt.BorderLayout.NORTH);
 
         jLabel1.setText("Caminho do arquivo (csv/txt separado por ';'):");
 
@@ -374,7 +471,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jtfClientesIEIM);
-        jtfClientesIEIM.setBounds(300, 30, 40, 23);
+        jtfClientesIEIM.setBounds(300, 80, 40, 23);
 
         jtfClientesCPFCNPJ.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -382,7 +479,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jtfClientesCPFCNPJ);
-        jtfClientesCPFCNPJ.setBounds(120, 30, 40, 23);
+        jtfClientesCPFCNPJ.setBounds(120, 80, 40, 23);
 
         jtfClientesCelular.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -390,7 +487,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jtfClientesCelular);
-        jtfClientesCelular.setBounds(480, 60, 40, 23);
+        jtfClientesCelular.setBounds(480, 110, 40, 23);
 
         jtfClientesContato.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -398,7 +495,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jtfClientesContato);
-        jtfClientesContato.setBounds(480, 0, 40, 23);
+        jtfClientesContato.setBounds(480, 50, 40, 23);
 
         jtfClientesDtNasc.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -406,16 +503,16 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jtfClientesDtNasc);
-        jtfClientesDtNasc.setBounds(120, 60, 40, 23);
+        jtfClientesDtNasc.setBounds(120, 110, 40, 23);
 
-        jcbClientesDtNasc.setText("Data Nasc");
+        jcbClientesDtNasc.setText("Data Nasc.");
         jcbClientesDtNasc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbClientesDtNascActionPerformed(evt);
             }
         });
         jPanel4.add(jcbClientesDtNasc);
-        jcbClientesDtNasc.setBounds(10, 60, 100, 23);
+        jcbClientesDtNasc.setBounds(10, 110, 100, 23);
 
         jcbClientesEmail.setText("E-mail");
         jcbClientesEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -424,7 +521,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesEmail);
-        jcbClientesEmail.setBounds(190, 60, 103, 23);
+        jcbClientesEmail.setBounds(190, 110, 103, 23);
 
         jtfClientesEmail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -432,7 +529,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jtfClientesEmail);
-        jtfClientesEmail.setBounds(300, 60, 40, 23);
+        jtfClientesEmail.setBounds(300, 110, 40, 23);
 
         jtfClientesFantasia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -440,7 +537,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jtfClientesFantasia);
-        jtfClientesFantasia.setBounds(300, 0, 40, 23);
+        jtfClientesFantasia.setBounds(300, 50, 40, 23);
 
         jcbClientesCPFCNPJ.setText("CPF/CNPJ");
         jcbClientesCPFCNPJ.addActionListener(new java.awt.event.ActionListener() {
@@ -449,7 +546,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesCPFCNPJ);
-        jcbClientesCPFCNPJ.setBounds(10, 30, 110, 23);
+        jcbClientesCPFCNPJ.setBounds(10, 80, 110, 23);
 
         jcbClientesFantasia.setText("Fantasia");
         jcbClientesFantasia.addActionListener(new java.awt.event.ActionListener() {
@@ -458,16 +555,16 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesFantasia);
-        jcbClientesFantasia.setBounds(190, 0, 100, 23);
+        jcbClientesFantasia.setBounds(190, 50, 100, 23);
 
-        jcbClientesIEIM.setText("Insc Est");
+        jcbClientesIEIM.setText("Inscrição Est.");
         jcbClientesIEIM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbClientesIEIMActionPerformed(evt);
             }
         });
         jPanel4.add(jcbClientesIEIM);
-        jcbClientesIEIM.setBounds(190, 30, 100, 23);
+        jcbClientesIEIM.setBounds(190, 80, 100, 23);
 
         jcbClientesCelular.setText("Telefone 2");
         jcbClientesCelular.addActionListener(new java.awt.event.ActionListener() {
@@ -476,7 +573,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesCelular);
-        jcbClientesCelular.setBounds(370, 60, 100, 23);
+        jcbClientesCelular.setBounds(370, 110, 100, 23);
 
         jcbClientesTelefone.setText("Telefone 1");
         jcbClientesTelefone.addActionListener(new java.awt.event.ActionListener() {
@@ -485,7 +582,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesTelefone);
-        jcbClientesTelefone.setBounds(370, 30, 100, 23);
+        jcbClientesTelefone.setBounds(370, 80, 100, 23);
 
         jtfClientesTelefone.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -493,7 +590,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jtfClientesTelefone);
-        jtfClientesTelefone.setBounds(480, 30, 40, 23);
+        jtfClientesTelefone.setBounds(480, 80, 40, 23);
 
         jcbClientesNome.setText("Nome");
         jcbClientesNome.addActionListener(new java.awt.event.ActionListener() {
@@ -502,7 +599,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesNome);
-        jcbClientesNome.setBounds(10, 0, 100, 23);
+        jcbClientesNome.setBounds(10, 50, 100, 23);
 
         jtfClientesNome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -513,7 +610,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jtfClientesNome);
-        jtfClientesNome.setBounds(120, 0, 40, 23);
+        jtfClientesNome.setBounds(120, 50, 40, 23);
 
         jcbClientesContato.setText("Contato");
         jcbClientesContato.addActionListener(new java.awt.event.ActionListener() {
@@ -522,7 +619,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesContato);
-        jcbClientesContato.setBounds(370, 0, 100, 23);
+        jcbClientesContato.setBounds(370, 50, 100, 23);
 
         jtfClientesEndereco.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -530,7 +627,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jtfClientesEndereco);
-        jtfClientesEndereco.setBounds(120, 130, 40, 23);
+        jtfClientesEndereco.setBounds(120, 180, 40, 23);
 
         jtfClientesNumero.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -538,7 +635,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jtfClientesNumero);
-        jtfClientesNumero.setBounds(300, 130, 40, 23);
+        jtfClientesNumero.setBounds(300, 180, 40, 23);
 
         jcbClientesBairro.setText("Bairro");
         jcbClientesBairro.addActionListener(new java.awt.event.ActionListener() {
@@ -547,7 +644,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesBairro);
-        jcbClientesBairro.setBounds(370, 130, 100, 23);
+        jcbClientesBairro.setBounds(370, 180, 100, 23);
 
         jtfClientesBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -560,7 +657,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jtfClientesBairro);
-        jtfClientesBairro.setBounds(480, 130, 40, 22);
+        jtfClientesBairro.setBounds(480, 180, 40, 22);
 
         jcbClientesCidade.setText("Cidade");
         jcbClientesCidade.addActionListener(new java.awt.event.ActionListener() {
@@ -569,7 +666,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesCidade);
-        jcbClientesCidade.setBounds(370, 160, 103, 23);
+        jcbClientesCidade.setBounds(370, 210, 103, 23);
 
         jtfClientesCidade.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -577,7 +674,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jtfClientesCidade);
-        jtfClientesCidade.setBounds(480, 160, 40, 23);
+        jtfClientesCidade.setBounds(480, 210, 40, 23);
 
         jcbClientesCEP.setText("CEP");
         jcbClientesCEP.addActionListener(new java.awt.event.ActionListener() {
@@ -586,7 +683,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesCEP);
-        jcbClientesCEP.setBounds(190, 160, 103, 23);
+        jcbClientesCEP.setBounds(190, 210, 103, 23);
 
         jtfClientesCEP.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -594,7 +691,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jtfClientesCEP);
-        jtfClientesCEP.setBounds(300, 160, 40, 23);
+        jtfClientesCEP.setBounds(300, 210, 40, 23);
 
         jcbClientesComplemento.setText("Complemento");
         jcbClientesComplemento.addActionListener(new java.awt.event.ActionListener() {
@@ -603,7 +700,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesComplemento);
-        jcbClientesComplemento.setBounds(10, 160, 100, 23);
+        jcbClientesComplemento.setBounds(10, 210, 100, 23);
 
         jcbClientesEndereco.setText("Endereço");
         jcbClientesEndereco.addActionListener(new java.awt.event.ActionListener() {
@@ -612,7 +709,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesEndereco);
-        jcbClientesEndereco.setBounds(10, 130, 90, 23);
+        jcbClientesEndereco.setBounds(10, 180, 90, 23);
 
         jtfClientesComplemento.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -620,7 +717,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jtfClientesComplemento);
-        jtfClientesComplemento.setBounds(120, 160, 40, 23);
+        jtfClientesComplemento.setBounds(120, 210, 40, 23);
 
         jcbClientesNumero.setText("Numero");
         jcbClientesNumero.addActionListener(new java.awt.event.ActionListener() {
@@ -629,20 +726,20 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesNumero);
-        jcbClientesNumero.setBounds(190, 130, 100, 23);
+        jcbClientesNumero.setBounds(190, 180, 100, 23);
 
-        jcbHeaderExists.setText("Meu arquivo contém cabeçalho.");
-        jPanel4.add(jcbHeaderExists);
-        jcbHeaderExists.setBounds(10, 200, 270, 23);
+        jcbHeaderExistsClient.setText("Meu arquivo contém cabeçalho.");
+        jPanel4.add(jcbHeaderExistsClient);
+        jcbHeaderExistsClient.setBounds(10, 10, 270, 23);
 
         jtfFormatDateNasc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jtfFormatDateNasc.setText("dd/MM/yyyy");
         jPanel4.add(jtfFormatDateNasc);
-        jtfFormatDateNasc.setBounds(69, 90, 110, 30);
+        jtfFormatDateNasc.setBounds(70, 140, 110, 30);
 
         jlFormat.setText("Formato:");
         jPanel4.add(jlFormat);
-        jlFormat.setBounds(20, 90, 50, 30);
+        jlFormat.setBounds(20, 140, 50, 30);
 
         jbInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8_info_15px.png"))); // NOI18N
         jbInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -652,7 +749,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jbInfo);
-        jbInfo.setBounds(180, 90, 30, 30);
+        jbInfo.setBounds(180, 140, 30, 30);
 
         jlInfoCidade.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlInfoCidade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8_info_15px.png"))); // NOI18N
@@ -663,9 +760,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jlInfoCidade);
-        jlInfoCidade.setBounds(520, 160, 20, 20);
-
-        jLabel3.setText("Empresa:");
+        jlInfoCidade.setBounds(520, 210, 20, 20);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -680,17 +775,11 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jbImportClients))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 333, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jcbEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jtfPathClientsFile)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jbSearchFileClients, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jtfPathClientsFile)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbSearchFileClients, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)))
                 .addContainerGap())
         );
@@ -704,19 +793,15 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jbSearchFileClients, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtfPathClientsFile, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jcbEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbImportClients)
-                .addContainerGap())
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Clientes", jPanel2);
 
-        jLabel2.setText("Caminho do arquivo (csv/xlsx):");
+        jLabel2.setText("Caminho do arquivo (csv/txt separado por ';'):");
 
         jbSeachFileProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8_search_20px.png"))); // NOI18N
         jbSeachFileProducts.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -737,16 +822,283 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jPanel8.setPreferredSize(new java.awt.Dimension(100, 125));
+        jPanel8.setLayout(null);
+
+        jcbProdutosCodBarras.setText("Barras");
+        jcbProdutosCodBarras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbProdutosCodBarrasActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jcbProdutosCodBarras);
+        jcbProdutosCodBarras.setBounds(20, 80, 57, 22);
+
+        jtfProdutosCodBarras.setMaximumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosCodBarras.setMinimumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosCodBarras.setPreferredSize(new java.awt.Dimension(35, 22));
+        jtfProdutosCodBarras.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfProdutosCodBarrasKeyTyped(evt);
+            }
+        });
+        jPanel8.add(jtfProdutosCodBarras);
+        jtfProdutosCodBarras.setBounds(130, 80, 40, 23);
+
+        jcbProdutosDescricao.setText("Descrição");
+        jcbProdutosDescricao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbProdutosDescricaoActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jcbProdutosDescricao);
+        jcbProdutosDescricao.setBounds(20, 50, 107, 22);
+
+        jtfProdutosDescricao.setMaximumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosDescricao.setMinimumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosDescricao.setPreferredSize(new java.awt.Dimension(35, 22));
+        jtfProdutosDescricao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfProdutosDescricaoKeyTyped(evt);
+            }
+        });
+        jPanel8.add(jtfProdutosDescricao);
+        jtfProdutosDescricao.setBounds(130, 50, 40, 23);
+
+        jcbProdutosRef.setText("Referência");
+        jcbProdutosRef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbProdutosRefActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jcbProdutosRef);
+        jcbProdutosRef.setBounds(200, 50, 110, 22);
+
+        jtfProdutosRef.setMaximumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosRef.setMinimumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosRef.setPreferredSize(new java.awt.Dimension(35, 22));
+        jtfProdutosRef.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfProdutosRefKeyTyped(evt);
+            }
+        });
+        jPanel8.add(jtfProdutosRef);
+        jtfProdutosRef.setBounds(310, 50, 40, 23);
+
+        jcbProdutosUnMed.setText("Un Medida");
+        jcbProdutosUnMed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbProdutosUnMedActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jcbProdutosUnMed);
+        jcbProdutosUnMed.setBounds(200, 80, 107, 22);
+
+        jtfProdutosUnMed.setMaximumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosUnMed.setMinimumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosUnMed.setPreferredSize(new java.awt.Dimension(35, 22));
+        jtfProdutosUnMed.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfProdutosUnMedKeyTyped(evt);
+            }
+        });
+        jPanel8.add(jtfProdutosUnMed);
+        jtfProdutosUnMed.setBounds(310, 80, 40, 23);
+
+        jcbProdutosEstMin.setText("Estoque Min");
+        jcbProdutosEstMin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbProdutosEstMinActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jcbProdutosEstMin);
+        jcbProdutosEstMin.setBounds(380, 50, 110, 22);
+
+        jtfProdutosEstMin.setMaximumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosEstMin.setMinimumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosEstMin.setPreferredSize(new java.awt.Dimension(35, 22));
+        jtfProdutosEstMin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfProdutosEstMinKeyTyped(evt);
+            }
+        });
+        jPanel8.add(jtfProdutosEstMin);
+        jtfProdutosEstMin.setBounds(490, 50, 40, 23);
+
+        jtfProdutosEstAtual.setMaximumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosEstAtual.setMinimumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosEstAtual.setPreferredSize(new java.awt.Dimension(35, 22));
+        jtfProdutosEstAtual.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfProdutosEstAtualKeyTyped(evt);
+            }
+        });
+        jPanel8.add(jtfProdutosEstAtual);
+        jtfProdutosEstAtual.setBounds(490, 80, 40, 23);
+
+        jcbProdutosEstAtual.setText("Estoque Atual");
+        jcbProdutosEstAtual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbProdutosEstAtualActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jcbProdutosEstAtual);
+        jcbProdutosEstAtual.setBounds(380, 80, 110, 23);
+
+        jtfProdutosVlrVenda.setMaximumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosVlrVenda.setMinimumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosVlrVenda.setPreferredSize(new java.awt.Dimension(35, 22));
+        jtfProdutosVlrVenda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfProdutosVlrVendaKeyTyped(evt);
+            }
+        });
+        jPanel8.add(jtfProdutosVlrVenda);
+        jtfProdutosVlrVenda.setBounds(490, 140, 40, 23);
+
+        jtfProdutosVlrCusto.setMaximumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosVlrCusto.setMinimumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosVlrCusto.setPreferredSize(new java.awt.Dimension(35, 22));
+        jtfProdutosVlrCusto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfProdutosVlrCustoKeyTyped(evt);
+            }
+        });
+        jPanel8.add(jtfProdutosVlrCusto);
+        jtfProdutosVlrCusto.setBounds(490, 110, 40, 23);
+
+        jcbProdutosVlrCusto.setText("Valor Custo");
+        jcbProdutosVlrCusto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbProdutosVlrCustoActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jcbProdutosVlrCusto);
+        jcbProdutosVlrCusto.setBounds(380, 110, 110, 22);
+
+        jcbProdutosVlrVenda.setText("Valor Venda");
+        jcbProdutosVlrVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbProdutosVlrVendaActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jcbProdutosVlrVenda);
+        jcbProdutosVlrVenda.setBounds(380, 140, 100, 23);
+
+        jtfProdutosMarca.setMaximumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosMarca.setMinimumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosMarca.setPreferredSize(new java.awt.Dimension(35, 22));
+        jtfProdutosMarca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfProdutosMarcaKeyTyped(evt);
+            }
+        });
+        jPanel8.add(jtfProdutosMarca);
+        jtfProdutosMarca.setBounds(130, 110, 40, 23);
+
+        jcbProdutosMarca.setText("Marca");
+        jcbProdutosMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbProdutosMarcaActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jcbProdutosMarca);
+        jcbProdutosMarca.setBounds(20, 110, 107, 23);
+
+        jcbProdutosCategoria.setText("Categoria");
+        jcbProdutosCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbProdutosCategoriaActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jcbProdutosCategoria);
+        jcbProdutosCategoria.setBounds(200, 110, 107, 22);
+
+        jtfProdutosCategoria.setMaximumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosCategoria.setMinimumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosCategoria.setPreferredSize(new java.awt.Dimension(35, 22));
+        jtfProdutosCategoria.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfProdutosCategoriaKeyTyped(evt);
+            }
+        });
+        jPanel8.add(jtfProdutosCategoria);
+        jtfProdutosCategoria.setBounds(310, 110, 40, 23);
+
+        jcbProdutosSitTrib.setText("Sit Trib");
+        jcbProdutosSitTrib.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbProdutosSitTribActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jcbProdutosSitTrib);
+        jcbProdutosSitTrib.setBounds(20, 140, 107, 22);
+
+        jtfProdutosSitTrib.setMaximumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosSitTrib.setMinimumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosSitTrib.setPreferredSize(new java.awt.Dimension(35, 22));
+        jtfProdutosSitTrib.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfProdutosSitTribKeyTyped(evt);
+            }
+        });
+        jPanel8.add(jtfProdutosSitTrib);
+        jtfProdutosSitTrib.setBounds(130, 140, 40, 23);
+
+        jcbProdutosCFOP.setText("CFOP");
+        jcbProdutosCFOP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbProdutosCFOPActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jcbProdutosCFOP);
+        jcbProdutosCFOP.setBounds(200, 140, 107, 23);
+
+        jtfProdutosCFOP.setMaximumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosCFOP.setMinimumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosCFOP.setPreferredSize(new java.awt.Dimension(35, 22));
+        jtfProdutosCFOP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfProdutosCFOPKeyTyped(evt);
+            }
+        });
+        jPanel8.add(jtfProdutosCFOP);
+        jtfProdutosCFOP.setBounds(310, 140, 40, 23);
+
+        jtfProdutosClassFiscal.setMaximumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosClassFiscal.setMinimumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosClassFiscal.setPreferredSize(new java.awt.Dimension(35, 22));
+        jtfProdutosClassFiscal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfProdutosClassFiscalKeyTyped(evt);
+            }
+        });
+        jPanel8.add(jtfProdutosClassFiscal);
+        jtfProdutosClassFiscal.setBounds(130, 170, 40, 23);
+
+        jcbProdutosClassFiscal.setText("Class Fiscal");
+        jcbProdutosClassFiscal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbProdutosClassFiscalActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jcbProdutosClassFiscal);
+        jcbProdutosClassFiscal.setBounds(20, 170, 93, 23);
+
+        jcbHeaderExistsProducts.setText("Meu arquivo contém cabeçalho.");
+        jPanel8.add(jcbHeaderExistsProducts);
+        jcbHeaderExistsProducts.setBounds(20, 10, 270, 23);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(0, 406, Short.MAX_VALUE))
+                        .addGap(0, 333, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jbImportProducts))
@@ -756,6 +1108,7 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jbSeachFileProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)))
                 .addContainerGap())
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -766,9 +1119,11 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbSeachFileProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtfPathProductsFile, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 328, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbImportProducts)
-                .addContainerGap())
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Produtos", jPanel3);
@@ -814,6 +1169,14 @@ public class Main extends javax.swing.JFrame {
         jMenu4.add(jMenuItem3);
 
         jMenu1.add(jMenu4);
+
+        jmiExit.setText("Sair");
+        jmiExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiExitActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmiExit);
 
         jMenuBar1.add(jMenu1);
 
@@ -1095,6 +1458,173 @@ public class Main extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, msg);
     }//GEN-LAST:event_jlInfoCidadeMouseClicked
 
+    private void jcbProdutosCodBarrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutosCodBarrasActionPerformed
+        if (jcbProdutosCodBarras.isSelected()) {
+            jtfProdutosCodBarras.setVisible(true);
+        } else {
+            jtfProdutosCodBarras.setVisible(false);
+        }
+    }//GEN-LAST:event_jcbProdutosCodBarrasActionPerformed
+
+    private void jtfProdutosCodBarrasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfProdutosCodBarrasKeyTyped
+        String caracteres = "0987654321";
+        if (!caracteres.contains(evt.getKeyChar() + "")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtfProdutosCodBarrasKeyTyped
+
+    private void jcbProdutosDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutosDescricaoActionPerformed
+        if (jcbProdutosDescricao.isSelected()) {
+            jtfProdutosDescricao.setVisible(true);
+        } else {
+            jtfProdutosDescricao.setVisible(false);
+        }
+    }//GEN-LAST:event_jcbProdutosDescricaoActionPerformed
+
+    private void jtfProdutosDescricaoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfProdutosDescricaoKeyTyped
+        typed(evt, jtfProdutosDescricao);
+    }//GEN-LAST:event_jtfProdutosDescricaoKeyTyped
+
+    private void jcbProdutosRefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutosRefActionPerformed
+        if (jcbProdutosRef.isSelected()) {
+            jtfProdutosRef.setVisible(true);
+        } else {
+            jtfProdutosRef.setVisible(false);
+        }
+    }//GEN-LAST:event_jcbProdutosRefActionPerformed
+
+    private void jtfProdutosRefKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfProdutosRefKeyTyped
+       typed(evt, jtfProdutosRef);
+    }//GEN-LAST:event_jtfProdutosRefKeyTyped
+
+    private void jcbProdutosUnMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutosUnMedActionPerformed
+        if (jcbProdutosUnMed.isSelected()) {
+            jtfProdutosUnMed.setVisible(true);
+        } else {
+            jtfProdutosUnMed.setVisible(false);
+        }
+    }//GEN-LAST:event_jcbProdutosUnMedActionPerformed
+
+    private void jtfProdutosUnMedKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfProdutosUnMedKeyTyped
+        typed(evt, jtfProdutosUnMed);
+    }//GEN-LAST:event_jtfProdutosUnMedKeyTyped
+
+    private void jcbProdutosEstMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutosEstMinActionPerformed
+        if (jcbProdutosEstMin.isSelected()) {
+            jtfProdutosEstMin.setVisible(true);
+        } else {
+            jtfProdutosEstMin.setVisible(false);
+        }
+    }//GEN-LAST:event_jcbProdutosEstMinActionPerformed
+
+    private void jtfProdutosEstMinKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfProdutosEstMinKeyTyped
+        typed(evt, jtfProdutosEstMin);
+    }//GEN-LAST:event_jtfProdutosEstMinKeyTyped
+
+    private void jtfProdutosEstAtualKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfProdutosEstAtualKeyTyped
+        typed(evt, jtfProdutosEstAtual);
+    }//GEN-LAST:event_jtfProdutosEstAtualKeyTyped
+
+    private void jcbProdutosEstAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutosEstAtualActionPerformed
+        if (jcbProdutosEstAtual.isSelected()) {
+            jtfProdutosEstAtual.setVisible(true);
+        } else {
+            jtfProdutosEstAtual.setVisible(false);
+        }
+    }//GEN-LAST:event_jcbProdutosEstAtualActionPerformed
+
+    private void jtfProdutosVlrVendaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfProdutosVlrVendaKeyTyped
+        typed(evt, jtfProdutosVlrVenda);
+    }//GEN-LAST:event_jtfProdutosVlrVendaKeyTyped
+
+    private void jtfProdutosVlrCustoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfProdutosVlrCustoKeyTyped
+        typed(evt, jtfProdutosVlrCusto);
+    }//GEN-LAST:event_jtfProdutosVlrCustoKeyTyped
+
+    private void jcbProdutosVlrCustoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutosVlrCustoActionPerformed
+        if (jcbProdutosVlrCusto.isSelected()) {
+            jtfProdutosVlrCusto.setVisible(true);
+        } else {
+            jtfProdutosVlrCusto.setVisible(false);
+        }
+    }//GEN-LAST:event_jcbProdutosVlrCustoActionPerformed
+
+    private void jcbProdutosVlrVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutosVlrVendaActionPerformed
+        if (jcbProdutosVlrVenda.isSelected()) {
+            jtfProdutosVlrVenda.setVisible(true);
+        } else {
+            jtfProdutosVlrVenda.setVisible(false);
+        }
+    }//GEN-LAST:event_jcbProdutosVlrVendaActionPerformed
+
+    private void jtfProdutosMarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfProdutosMarcaKeyTyped
+        typed(evt, jtfProdutosMarca);
+    }//GEN-LAST:event_jtfProdutosMarcaKeyTyped
+
+    private void jcbProdutosMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutosMarcaActionPerformed
+        if (jcbProdutosMarca.isSelected()) {
+            jtfProdutosMarca.setVisible(true);
+        } else {
+            jtfProdutosMarca.setVisible(false);
+        }
+    }//GEN-LAST:event_jcbProdutosMarcaActionPerformed
+
+    private void jcbProdutosCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutosCategoriaActionPerformed
+        if (jcbProdutosCategoria.isSelected()) {
+            jtfProdutosCategoria.setVisible(true);
+        } else {
+            jtfProdutosCategoria.setVisible(false);
+        }
+    }//GEN-LAST:event_jcbProdutosCategoriaActionPerformed
+
+    private void jtfProdutosCategoriaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfProdutosCategoriaKeyTyped
+        typed(evt, jtfProdutosCategoria);
+    }//GEN-LAST:event_jtfProdutosCategoriaKeyTyped
+
+    private void jcbProdutosSitTribActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutosSitTribActionPerformed
+        if (jcbProdutosSitTrib.isSelected()) {
+            jtfProdutosSitTrib.setVisible(true);
+        } else {
+            jtfProdutosSitTrib.setVisible(false);
+        }
+    }//GEN-LAST:event_jcbProdutosSitTribActionPerformed
+
+    private void jtfProdutosSitTribKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfProdutosSitTribKeyTyped
+        typed(evt, jtfProdutosSitTrib);
+    }//GEN-LAST:event_jtfProdutosSitTribKeyTyped
+
+    private void jcbProdutosCFOPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutosCFOPActionPerformed
+        if (jcbProdutosCFOP.isSelected()) {
+            jtfProdutosCFOP.setVisible(true);
+        } else {
+            jtfProdutosCFOP.setVisible(false);
+        }
+    }//GEN-LAST:event_jcbProdutosCFOPActionPerformed
+
+    private void jtfProdutosCFOPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfProdutosCFOPKeyTyped
+        typed(evt, jtfProdutosCFOP);
+    }//GEN-LAST:event_jtfProdutosCFOPKeyTyped
+
+    private void jtfProdutosClassFiscalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfProdutosClassFiscalKeyTyped
+        typed(evt, jtfProdutosClassFiscal);
+    }//GEN-LAST:event_jtfProdutosClassFiscalKeyTyped
+
+    private void jcbProdutosClassFiscalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutosClassFiscalActionPerformed
+        if (jcbProdutosClassFiscal.isSelected()) {
+            jtfProdutosClassFiscal.setVisible(true);
+        } else {
+            jtfProdutosClassFiscal.setVisible(false);
+        }
+    }//GEN-LAST:event_jcbProdutosClassFiscalActionPerformed
+
+    private void jmiExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiExitActionPerformed
+        exitSystem();
+    }//GEN-LAST:event_jmiExitActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        exitSystem();
+    }//GEN-LAST:event_formWindowClosing
+
     private void importClientToFDB() {
         jbImportClients.setEnabled(false);
 
@@ -1103,7 +1633,7 @@ public class Main extends javax.swing.JFrame {
 
             Connection conn = new Database().getConnection();
             conn.setAutoCommit(false);
-            
+
             StringBuilder query = new StringBuilder();
             query.append("INSERT INTO PESSOAS (IDEMPRESA, IDTIPO_PS, IDPESSOA, NOME, TIPO_FJ, CNPJCPF, "
                     + "INSCR_EST, DATANASCIMENTO, FANTASIA, FONE1, FONE2, EMAIL, DATACADASTRO, PRI_ENDERECO, "
@@ -1130,7 +1660,7 @@ public class Main extends javax.swing.JFrame {
             String PRI_BAIRRO = "";
             String NUMEROENDER = "S/N";
 
-            int skip = jcbHeaderExists.isSelected() ? 1 : 0;
+            int skip = jcbHeaderExistsClient.isSelected() ? 1 : 0;
             List<String> fileImport = new BufferedReader(
                     new InputStreamReader(new FileInputStream(jtfPathClientsFile.getText()), Charset.forName("ISO-8859-1")))
                     .lines()
@@ -1369,6 +1899,14 @@ public class Main extends javax.swing.JFrame {
         }
 
         return found;
+
+    }
+
+    private void exitSystem() {
+        int confirm = JOptionPane.showConfirmDialog(this, "Deseja realmente sair do sistema?", "Sair", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
     }
 
     class UpperCase extends PlainDocument {
@@ -1430,6 +1968,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -1454,9 +1994,24 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JCheckBox jcbClientesNumero;
     private javax.swing.JCheckBox jcbClientesTelefone;
     private javax.swing.JComboBox<com.ravc.simpleimport.models.ModelEmpresa> jcbEmpresa;
-    private javax.swing.JCheckBox jcbHeaderExists;
+    private javax.swing.JCheckBox jcbHeaderExistsClient;
+    private javax.swing.JCheckBox jcbHeaderExistsProducts;
+    private javax.swing.JCheckBox jcbProdutosCFOP;
+    private javax.swing.JCheckBox jcbProdutosCategoria;
+    private javax.swing.JCheckBox jcbProdutosClassFiscal;
+    private javax.swing.JCheckBox jcbProdutosCodBarras;
+    private javax.swing.JCheckBox jcbProdutosDescricao;
+    private javax.swing.JCheckBox jcbProdutosEstAtual;
+    private javax.swing.JCheckBox jcbProdutosEstMin;
+    private javax.swing.JCheckBox jcbProdutosMarca;
+    private javax.swing.JCheckBox jcbProdutosRef;
+    private javax.swing.JCheckBox jcbProdutosSitTrib;
+    private javax.swing.JCheckBox jcbProdutosUnMed;
+    private javax.swing.JCheckBox jcbProdutosVlrCusto;
+    private javax.swing.JCheckBox jcbProdutosVlrVenda;
     private javax.swing.JLabel jlFormat;
     private javax.swing.JLabel jlInfoCidade;
+    private javax.swing.JMenuItem jmiExit;
     private javax.swing.JPanel jpFields;
     private javax.swing.JPanel jpLog;
     private javax.swing.JProgressBar jpbProgress;
@@ -1481,6 +2036,19 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jtfFormatDateNasc;
     private javax.swing.JTextField jtfPathClientsFile;
     private javax.swing.JTextField jtfPathProductsFile;
+    private javax.swing.JTextField jtfProdutosCFOP;
+    private javax.swing.JTextField jtfProdutosCategoria;
+    private javax.swing.JTextField jtfProdutosClassFiscal;
+    private javax.swing.JTextField jtfProdutosCodBarras;
+    private javax.swing.JTextField jtfProdutosDescricao;
+    private javax.swing.JTextField jtfProdutosEstAtual;
+    private javax.swing.JTextField jtfProdutosEstMin;
+    private javax.swing.JTextField jtfProdutosMarca;
+    private javax.swing.JTextField jtfProdutosRef;
+    private javax.swing.JTextField jtfProdutosSitTrib;
+    private javax.swing.JTextField jtfProdutosUnMed;
+    private javax.swing.JTextField jtfProdutosVlrCusto;
+    private javax.swing.JTextField jtfProdutosVlrVenda;
     // End of variables declaration//GEN-END:variables
 
     private void typed(KeyEvent evt, JTextField jtf) {
