@@ -369,9 +369,6 @@ public class Main extends javax.swing.JFrame {
         jrbmDark = new javax.swing.JRadioButtonMenuItem();
         jrbmLight = new javax.swing.JRadioButtonMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jmiExit = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -1164,16 +1161,6 @@ public class Main extends javax.swing.JFrame {
 
         jMenu1.add(jMenu3);
         jMenu1.add(jSeparator1);
-
-        jMenu4.setText("Manuais");
-
-        jMenuItem2.setText("Importação");
-        jMenu4.add(jMenuItem2);
-
-        jMenuItem3.setText("Layout de arquivos");
-        jMenu4.add(jMenuItem3);
-
-        jMenu1.add(jMenu4);
 
         jmiExit.setText("Sair");
         jmiExit.addActionListener(new java.awt.event.ActionListener() {
@@ -2256,11 +2243,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
