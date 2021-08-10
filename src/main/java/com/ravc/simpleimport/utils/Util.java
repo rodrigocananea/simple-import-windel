@@ -5,6 +5,10 @@
  */
 package com.ravc.simpleimport.utils;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -14,6 +18,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -22,6 +27,79 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class Util {
 
+    public static String currency(double value) {
+        return NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(value);
+    }
+
+    public static String currency(double value, String format) {
+        if (format == null
+                || format.equals("")) {
+            format = "#,##0.00";
+        }
+        return new DecimalFormat(format).format(value);
+    }
+
+    public static String currency(BigDecimal value, String format) {
+        if (format == null
+                || format.equals("")) {
+            format = "#,##0.00";
+        }
+        return new DecimalFormat(format).format(value);
+    }
+
+    public static double currency(String value) {
+        double formated = 0.00;
+        try {
+            if (StringUtils.isNotBlank(value)) {
+                value = value.replaceAll("[a-zA-Z]+\\.?", "");
+                value = value.replace("\t", "").trim();
+                value = value.replace(" ", "").trim();
+                value = value.replace("$", "").trim();
+                value = value.replace("%", "").trim();
+                NumberFormat nf = NumberFormat.getInstance(Locale.GERMANY);
+                BigDecimal bd = new BigDecimal(nf.parse(value).doubleValue())
+                        .setScale(2, RoundingMode.HALF_UP);
+
+                formated = bd.doubleValue();
+            }
+        } catch (ParseException ex) {
+            formated = 0.00;
+        }
+        return formated;
+    }
+
+    public static double currency(String value, String scale) {
+        if (!StringUtils.isNotBlank(value)) {
+            return 0.00;
+        } else {
+            try {
+                if (!StringUtils.isNotBlank(scale)) {
+                    scale = "2";
+                }
+                value = value.replace("\t", "").trim();
+                value = value.replace(" ", "").trim();
+                value = value.replace("R$", "").trim();
+                value = value.replace("%", "").trim();
+                value = value.replace("%", "").trim();
+                NumberFormat nf = NumberFormat.getInstance(Locale.GERMANY);
+                BigDecimal bd = new BigDecimal(nf.parse(value).doubleValue())
+                        .setScale(Integer.valueOf(scale), RoundingMode.HALF_UP);
+
+                return bd.doubleValue();
+            } catch (ParseException ex) {
+                return 0.00;
+            }
+        }
+    }
+
+    public static String currency(BigDecimal value) {
+        if (value == null) {
+            value = BigDecimal.ZERO;
+        }
+        return NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(value);
+    }
+
+    
     public static boolean indexExists(final List list, final int index) {
         return index >= 0 && index < list.size();
     }

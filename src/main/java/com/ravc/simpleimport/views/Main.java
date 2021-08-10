@@ -10,11 +10,15 @@ import com.formdev.flatlaf.intellijthemes.FlatOneDarkIJTheme;
 import static com.ravc.simpleimport.SimpleImport.SIProp;
 import com.ravc.simpleimport.controllers.ControllerData;
 import com.ravc.simpleimport.models.ModelCidade;
+import com.ravc.simpleimport.models.ModelClassFiscal;
 import com.ravc.simpleimport.models.ModelEmpresa;
+import com.ravc.simpleimport.models.ModelSitTrib;
+import com.ravc.simpleimport.models.ModelUnMed;
 import com.ravc.simpleimport.utils.Database;
 import com.ravc.simpleimport.utils.FileTypeFilter;
 import com.ravc.simpleimport.utils.SIConst;
 import com.ravc.simpleimport.utils.TextAreaAppender;
+import com.ravc.simpleimport.utils.UnMedEnum;
 import com.ravc.simpleimport.utils.Util;
 import java.awt.Window;
 import java.awt.event.KeyEvent;
@@ -56,6 +60,9 @@ public class Main extends javax.swing.JFrame {
     final static Logger logger = Logger.getLogger("");
     List<String> excelCols = null;
     List<ModelCidade> cidades = new ArrayList<>();
+    List<ModelUnMed> unidades = new ArrayList<>();
+    List<ModelSitTrib> sitTribs = new ArrayList<>();
+    List<ModelClassFiscal> classfiscals = new ArrayList<>();
 
     /**
      * Creates new form Main
@@ -120,7 +127,7 @@ public class Main extends javax.swing.JFrame {
         jtfProdutosDescricao.setVisible(false);
         jtfProdutosUnMed.setVisible(false);
         jtfProdutosMarca.setVisible(false);
-        jtfProdutosCategoria.setVisible(false);
+        jtfProdutosGrupo.setVisible(false);
         jtfProdutosEstMin.setVisible(false);
         jtfProdutosEstAtual.setVisible(false);
         jtfProdutosVlrCusto.setVisible(false);
@@ -129,12 +136,12 @@ public class Main extends javax.swing.JFrame {
         jtfProdutosClassFiscal.setVisible(false);
         jtfProdutosSitTrib.setVisible(false);
         jtfProdutosCFOP.setVisible(false);
-        
+
         jtfProdutosCodBarras.setDocument(new UpperCase());
         jtfProdutosDescricao.setDocument(new UpperCase());
         jtfProdutosUnMed.setDocument(new UpperCase());
         jtfProdutosMarca.setDocument(new UpperCase());
-        jtfProdutosCategoria.setDocument(new UpperCase());
+        jtfProdutosGrupo.setDocument(new UpperCase());
         jtfProdutosEstMin.setDocument(new UpperCase());
         jtfProdutosEstAtual.setDocument(new UpperCase());
         jtfProdutosVlrCusto.setDocument(new UpperCase());
@@ -255,8 +262,6 @@ public class Main extends javax.swing.JFrame {
         excelCols.add("CY");
         excelCols.add("CZ");
 
-        cidades = new ControllerData().getCidades();
-
         logger.info("########################");
         logger.info("### Aplicação inciada! ###");
 
@@ -349,8 +354,8 @@ public class Main extends javax.swing.JFrame {
         jcbProdutosVlrVenda = new javax.swing.JCheckBox();
         jtfProdutosMarca = new javax.swing.JTextField();
         jcbProdutosMarca = new javax.swing.JCheckBox();
-        jcbProdutosCategoria = new javax.swing.JCheckBox();
-        jtfProdutosCategoria = new javax.swing.JTextField();
+        jcbProdutosGrupo = new javax.swing.JCheckBox();
+        jtfProdutosGrupo = new javax.swing.JTextField();
         jcbProdutosSitTrib = new javax.swing.JCheckBox();
         jtfProdutosSitTrib = new javax.swing.JTextField();
         jcbProdutosCFOP = new javax.swing.JCheckBox();
@@ -766,17 +771,17 @@ public class Main extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jbImportClients))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 333, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jtfPathClientsFile)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbSearchFileClients, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -832,7 +837,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jcbProdutosCodBarras);
-        jcbProdutosCodBarras.setBounds(20, 80, 57, 22);
+        jcbProdutosCodBarras.setBounds(10, 80, 57, 22);
 
         jtfProdutosCodBarras.setMaximumSize(new java.awt.Dimension(35, 22));
         jtfProdutosCodBarras.setMinimumSize(new java.awt.Dimension(35, 22));
@@ -843,7 +848,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jtfProdutosCodBarras);
-        jtfProdutosCodBarras.setBounds(130, 80, 40, 23);
+        jtfProdutosCodBarras.setBounds(120, 80, 40, 23);
 
         jcbProdutosDescricao.setText("Descrição");
         jcbProdutosDescricao.addActionListener(new java.awt.event.ActionListener() {
@@ -852,7 +857,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jcbProdutosDescricao);
-        jcbProdutosDescricao.setBounds(20, 50, 107, 22);
+        jcbProdutosDescricao.setBounds(10, 50, 107, 22);
 
         jtfProdutosDescricao.setMaximumSize(new java.awt.Dimension(35, 22));
         jtfProdutosDescricao.setMinimumSize(new java.awt.Dimension(35, 22));
@@ -863,7 +868,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jtfProdutosDescricao);
-        jtfProdutosDescricao.setBounds(130, 50, 40, 23);
+        jtfProdutosDescricao.setBounds(120, 50, 40, 23);
 
         jcbProdutosRef.setText("Referência");
         jcbProdutosRef.addActionListener(new java.awt.event.ActionListener() {
@@ -872,7 +877,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jcbProdutosRef);
-        jcbProdutosRef.setBounds(200, 50, 110, 22);
+        jcbProdutosRef.setBounds(190, 50, 110, 22);
 
         jtfProdutosRef.setMaximumSize(new java.awt.Dimension(35, 22));
         jtfProdutosRef.setMinimumSize(new java.awt.Dimension(35, 22));
@@ -883,7 +888,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jtfProdutosRef);
-        jtfProdutosRef.setBounds(310, 50, 40, 23);
+        jtfProdutosRef.setBounds(300, 50, 40, 23);
 
         jcbProdutosUnMed.setText("Un Medida");
         jcbProdutosUnMed.addActionListener(new java.awt.event.ActionListener() {
@@ -892,7 +897,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jcbProdutosUnMed);
-        jcbProdutosUnMed.setBounds(200, 80, 107, 22);
+        jcbProdutosUnMed.setBounds(190, 80, 107, 22);
 
         jtfProdutosUnMed.setMaximumSize(new java.awt.Dimension(35, 22));
         jtfProdutosUnMed.setMinimumSize(new java.awt.Dimension(35, 22));
@@ -903,7 +908,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jtfProdutosUnMed);
-        jtfProdutosUnMed.setBounds(310, 80, 40, 23);
+        jtfProdutosUnMed.setBounds(300, 80, 40, 23);
 
         jcbProdutosEstMin.setText("Estoque Min");
         jcbProdutosEstMin.addActionListener(new java.awt.event.ActionListener() {
@@ -912,7 +917,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jcbProdutosEstMin);
-        jcbProdutosEstMin.setBounds(380, 50, 110, 22);
+        jcbProdutosEstMin.setBounds(370, 50, 110, 22);
 
         jtfProdutosEstMin.setMaximumSize(new java.awt.Dimension(35, 22));
         jtfProdutosEstMin.setMinimumSize(new java.awt.Dimension(35, 22));
@@ -923,7 +928,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jtfProdutosEstMin);
-        jtfProdutosEstMin.setBounds(490, 50, 40, 23);
+        jtfProdutosEstMin.setBounds(480, 50, 40, 23);
 
         jtfProdutosEstAtual.setMaximumSize(new java.awt.Dimension(35, 22));
         jtfProdutosEstAtual.setMinimumSize(new java.awt.Dimension(35, 22));
@@ -934,7 +939,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jtfProdutosEstAtual);
-        jtfProdutosEstAtual.setBounds(490, 80, 40, 23);
+        jtfProdutosEstAtual.setBounds(480, 80, 40, 23);
 
         jcbProdutosEstAtual.setText("Estoque Atual");
         jcbProdutosEstAtual.addActionListener(new java.awt.event.ActionListener() {
@@ -943,7 +948,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jcbProdutosEstAtual);
-        jcbProdutosEstAtual.setBounds(380, 80, 110, 23);
+        jcbProdutosEstAtual.setBounds(370, 80, 110, 23);
 
         jtfProdutosVlrVenda.setMaximumSize(new java.awt.Dimension(35, 22));
         jtfProdutosVlrVenda.setMinimumSize(new java.awt.Dimension(35, 22));
@@ -954,7 +959,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jtfProdutosVlrVenda);
-        jtfProdutosVlrVenda.setBounds(490, 140, 40, 23);
+        jtfProdutosVlrVenda.setBounds(480, 140, 40, 23);
 
         jtfProdutosVlrCusto.setMaximumSize(new java.awt.Dimension(35, 22));
         jtfProdutosVlrCusto.setMinimumSize(new java.awt.Dimension(35, 22));
@@ -965,7 +970,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jtfProdutosVlrCusto);
-        jtfProdutosVlrCusto.setBounds(490, 110, 40, 23);
+        jtfProdutosVlrCusto.setBounds(480, 110, 40, 23);
 
         jcbProdutosVlrCusto.setText("Valor Custo");
         jcbProdutosVlrCusto.addActionListener(new java.awt.event.ActionListener() {
@@ -974,7 +979,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jcbProdutosVlrCusto);
-        jcbProdutosVlrCusto.setBounds(380, 110, 110, 22);
+        jcbProdutosVlrCusto.setBounds(370, 110, 110, 22);
 
         jcbProdutosVlrVenda.setText("Valor Venda");
         jcbProdutosVlrVenda.addActionListener(new java.awt.event.ActionListener() {
@@ -983,7 +988,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jcbProdutosVlrVenda);
-        jcbProdutosVlrVenda.setBounds(380, 140, 100, 23);
+        jcbProdutosVlrVenda.setBounds(370, 140, 100, 23);
 
         jtfProdutosMarca.setMaximumSize(new java.awt.Dimension(35, 22));
         jtfProdutosMarca.setMinimumSize(new java.awt.Dimension(35, 22));
@@ -994,7 +999,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jtfProdutosMarca);
-        jtfProdutosMarca.setBounds(130, 110, 40, 23);
+        jtfProdutosMarca.setBounds(120, 110, 40, 23);
 
         jcbProdutosMarca.setText("Marca");
         jcbProdutosMarca.addActionListener(new java.awt.event.ActionListener() {
@@ -1003,27 +1008,27 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jcbProdutosMarca);
-        jcbProdutosMarca.setBounds(20, 110, 107, 23);
+        jcbProdutosMarca.setBounds(10, 110, 107, 23);
 
-        jcbProdutosCategoria.setText("Categoria");
-        jcbProdutosCategoria.addActionListener(new java.awt.event.ActionListener() {
+        jcbProdutosGrupo.setText("Grupo");
+        jcbProdutosGrupo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbProdutosCategoriaActionPerformed(evt);
+                jcbProdutosGrupoActionPerformed(evt);
             }
         });
-        jPanel8.add(jcbProdutosCategoria);
-        jcbProdutosCategoria.setBounds(200, 110, 107, 22);
+        jPanel8.add(jcbProdutosGrupo);
+        jcbProdutosGrupo.setBounds(190, 110, 107, 22);
 
-        jtfProdutosCategoria.setMaximumSize(new java.awt.Dimension(35, 22));
-        jtfProdutosCategoria.setMinimumSize(new java.awt.Dimension(35, 22));
-        jtfProdutosCategoria.setPreferredSize(new java.awt.Dimension(35, 22));
-        jtfProdutosCategoria.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtfProdutosGrupo.setMaximumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosGrupo.setMinimumSize(new java.awt.Dimension(35, 22));
+        jtfProdutosGrupo.setPreferredSize(new java.awt.Dimension(35, 22));
+        jtfProdutosGrupo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtfProdutosCategoriaKeyTyped(evt);
+                jtfProdutosGrupoKeyTyped(evt);
             }
         });
-        jPanel8.add(jtfProdutosCategoria);
-        jtfProdutosCategoria.setBounds(310, 110, 40, 23);
+        jPanel8.add(jtfProdutosGrupo);
+        jtfProdutosGrupo.setBounds(300, 110, 40, 23);
 
         jcbProdutosSitTrib.setText("Sit Trib");
         jcbProdutosSitTrib.addActionListener(new java.awt.event.ActionListener() {
@@ -1032,7 +1037,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jcbProdutosSitTrib);
-        jcbProdutosSitTrib.setBounds(20, 140, 107, 22);
+        jcbProdutosSitTrib.setBounds(10, 140, 107, 22);
 
         jtfProdutosSitTrib.setMaximumSize(new java.awt.Dimension(35, 22));
         jtfProdutosSitTrib.setMinimumSize(new java.awt.Dimension(35, 22));
@@ -1043,7 +1048,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jtfProdutosSitTrib);
-        jtfProdutosSitTrib.setBounds(130, 140, 40, 23);
+        jtfProdutosSitTrib.setBounds(120, 140, 40, 23);
 
         jcbProdutosCFOP.setText("CFOP");
         jcbProdutosCFOP.addActionListener(new java.awt.event.ActionListener() {
@@ -1052,7 +1057,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jcbProdutosCFOP);
-        jcbProdutosCFOP.setBounds(200, 140, 107, 23);
+        jcbProdutosCFOP.setBounds(190, 140, 107, 23);
 
         jtfProdutosCFOP.setMaximumSize(new java.awt.Dimension(35, 22));
         jtfProdutosCFOP.setMinimumSize(new java.awt.Dimension(35, 22));
@@ -1063,7 +1068,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jtfProdutosCFOP);
-        jtfProdutosCFOP.setBounds(310, 140, 40, 23);
+        jtfProdutosCFOP.setBounds(300, 140, 40, 23);
 
         jtfProdutosClassFiscal.setMaximumSize(new java.awt.Dimension(35, 22));
         jtfProdutosClassFiscal.setMinimumSize(new java.awt.Dimension(35, 22));
@@ -1074,7 +1079,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jtfProdutosClassFiscal);
-        jtfProdutosClassFiscal.setBounds(130, 170, 40, 23);
+        jtfProdutosClassFiscal.setBounds(120, 170, 40, 23);
 
         jcbProdutosClassFiscal.setText("Class Fiscal");
         jcbProdutosClassFiscal.addActionListener(new java.awt.event.ActionListener() {
@@ -1083,19 +1088,20 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jcbProdutosClassFiscal);
-        jcbProdutosClassFiscal.setBounds(20, 170, 93, 23);
+        jcbProdutosClassFiscal.setBounds(10, 170, 93, 23);
 
         jcbHeaderExistsProducts.setText("Meu arquivo contém cabeçalho.");
         jPanel8.add(jcbHeaderExistsProducts);
-        jcbHeaderExistsProducts.setBounds(20, 10, 270, 23);
+        jcbHeaderExistsProducts.setBounds(10, 10, 270, 23);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(0, 333, Short.MAX_VALUE))
@@ -1108,7 +1114,6 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jbSeachFileProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)))
                 .addContainerGap())
-            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1208,7 +1213,10 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jbSeachFileProductsActionPerformed
 
     private void jbImportProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbImportProductsActionPerformed
-        // TODO add your handling code here:
+        File file = new File(jtfPathProductsFile.getText());
+        if (file.exists() && file.isFile()) {
+            new Thread(() -> importProductsToFDB()).start();
+        }
     }//GEN-LAST:event_jbImportProductsActionPerformed
 
     private void jbImportClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbImportClientsActionPerformed
@@ -1441,7 +1449,7 @@ public class Main extends javax.swing.JFrame {
         msg.append("Exemplos:\n");
         msg.append("'2021-12-31' -> 'yyyy-MM-dd'\n");
         msg.append("'31.12.2021' -> 'dd.MM.yyyy'\n");
-        msg.append("'2021/31/12' -> 'yyyy/MM/dd'\n\n");
+        msg.append("'2021/31/12' -> 'yyyy/MM/dd'\n");
         msg.append("'31-nov-21' -> 'dd/MMM/yy'\n\n");
         msg.append("Somente informando o formato correto o sistema\n"
                 + "vai preencher este campo, caso não esteja preenchido\n"
@@ -1494,7 +1502,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jcbProdutosRefActionPerformed
 
     private void jtfProdutosRefKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfProdutosRefKeyTyped
-       typed(evt, jtfProdutosRef);
+        typed(evt, jtfProdutosRef);
     }//GEN-LAST:event_jtfProdutosRefKeyTyped
 
     private void jcbProdutosUnMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutosUnMedActionPerformed
@@ -1569,17 +1577,17 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jcbProdutosMarcaActionPerformed
 
-    private void jcbProdutosCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutosCategoriaActionPerformed
-        if (jcbProdutosCategoria.isSelected()) {
-            jtfProdutosCategoria.setVisible(true);
+    private void jcbProdutosGrupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutosGrupoActionPerformed
+        if (jcbProdutosGrupo.isSelected()) {
+            jtfProdutosGrupo.setVisible(true);
         } else {
-            jtfProdutosCategoria.setVisible(false);
+            jtfProdutosGrupo.setVisible(false);
         }
-    }//GEN-LAST:event_jcbProdutosCategoriaActionPerformed
+    }//GEN-LAST:event_jcbProdutosGrupoActionPerformed
 
-    private void jtfProdutosCategoriaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfProdutosCategoriaKeyTyped
-        typed(evt, jtfProdutosCategoria);
-    }//GEN-LAST:event_jtfProdutosCategoriaKeyTyped
+    private void jtfProdutosGrupoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfProdutosGrupoKeyTyped
+        typed(evt, jtfProdutosGrupo);
+    }//GEN-LAST:event_jtfProdutosGrupoKeyTyped
 
     private void jcbProdutosSitTribActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutosSitTribActionPerformed
         if (jcbProdutosSitTrib.isSelected()) {
@@ -1625,11 +1633,239 @@ public class Main extends javax.swing.JFrame {
         exitSystem();
     }//GEN-LAST:event_formWindowClosing
 
+    private void importProductsToFDB() {
+        jbImportProducts.setEnabled(false);
+
+        try {
+            logger.info("==================== Iniciando importação de Produtos ====================");
+
+            logger.info("# Carregando unidades de medida do banco de dados, aguarde...");
+            unidades = new ControllerData().getUnidades();
+            logger.info("# Unidades de medida carregadas!");
+            logger.info("# Carregando situações tributárias do banco de dados, aguarde...");
+            sitTribs = new ControllerData().getSitTribs();
+            logger.info("# Situações tributárias carregadas!");
+            logger.info("# Carregando NCM's do banco de dados, aguarde...");
+            classfiscals = new ControllerData().getClassFiscal();
+            logger.info("# NCM's carregadas!");
+
+            Connection conn = new Database().getConnection();
+            conn.setAutoCommit(false);
+
+            StringBuilder query = new StringBuilder();
+            query.append("INSERT INTO PESSOAS (IDEMPRESA, IDPRODUTO, DESCRICAO, TIPO, UN, "
+                    + "BARRAS, REFERENCIA, VLR_VENDA, VLR_ULTCOMPRA, EST_MIN, EST_ATUAL, MARCA, GRUPO, "
+                    + "SITTRIB, NATOPERPADRAOVENDAS, CLASSFISCAL, FORADELINHA)\n"
+                    + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
+
+            ModelEmpresa empresa = (ModelEmpresa) jcbEmpresa.getSelectedItem();
+            int IDEMPRESA = empresa.getId();
+            int IDPRODUTO = new ControllerData().getLastIdProduct(empresa.getId());
+            String DESCRICAO = "";
+            String TIPO = "C";
+            String UN = "UN";
+            String BARRAS = "";
+            String REFERENCIA = "";
+            double VLR_VENDA = 0.00;
+            double VLR_ULTCOMPRA = 0.00;
+            double EST_MIN = 0.00;
+            double EST_ATUAL = 0.00;
+            String MARCA = "";
+            int GRUPO = 0;
+            int SITTRIB = 0;
+            int NATOPERPADRAOVENDAS = 0;
+            int CLASSFISCAL = 0;
+            String FORADELINHA = "N";
+
+            int skip = jcbHeaderExistsProducts.isSelected() ? 1 : 0;
+            List<String> fileImport = new BufferedReader(
+                    new InputStreamReader(new FileInputStream(jtfPathProductsFile.getText()), Charset.forName("ISO-8859-1")))
+                    .lines()
+                    .skip(skip)
+                    .collect(Collectors.toList());
+
+            int countLines = 0;
+            int lastLine = fileImport.size();
+            jpbProgress.setValue(0);
+            jpbProgress.setMaximum(lastLine);
+
+            for (String line : fileImport) {
+
+                List<String> columns = Stream.of(line.split(";"))
+                        .map(StringUtils::trimToEmpty)
+                        .collect(Collectors.toList());
+
+                String indexDESCRICAO = jtfProdutosDescricao.getText();
+                if (jcbProdutosDescricao.isSelected()
+                        && StringUtils.isNotBlank(indexDESCRICAO)) {
+
+                    if (Util.indexExists(columns, excelCols.indexOf(indexDESCRICAO))) {
+                        DESCRICAO = columns.get(excelCols.indexOf(indexDESCRICAO));
+                    }
+                }
+
+                String indexUN = jtfProdutosUnMed.getText();
+                if (jcbProdutosUnMed.isSelected()
+                        && StringUtils.isNotBlank(indexUN)) {
+
+                    if (Util.indexExists(columns, excelCols.indexOf(indexUN))) {
+                        UN = columns.get(excelCols.indexOf(indexUN));
+                        UN = getUnidade(UN);
+                    }
+                }
+
+                String indexBARRAS = jtfProdutosCodBarras.getText();
+                if (jcbProdutosCodBarras.isSelected()
+                        && StringUtils.isNotBlank(indexBARRAS)) {
+
+                    if (Util.indexExists(columns, excelCols.indexOf(indexBARRAS))) {
+                        BARRAS = columns.get(excelCols.indexOf(indexBARRAS));
+                    }
+                }
+
+                String indexREFERENCIA = jtfProdutosRef.getText();
+                if (jcbProdutosRef.isSelected()
+                        && StringUtils.isNotBlank(indexREFERENCIA)) {
+
+                    if (Util.indexExists(columns, excelCols.indexOf(indexREFERENCIA))) {
+                        REFERENCIA = columns.get(excelCols.indexOf(indexREFERENCIA));
+                    }
+                }
+
+                String indexVLR_VENDA = jtfProdutosVlrVenda.getText();
+                if (jcbProdutosVlrVenda.isSelected()
+                        && StringUtils.isNotBlank(indexVLR_VENDA)) {
+
+                    if (Util.indexExists(columns, excelCols.indexOf(indexVLR_VENDA))) {
+                        VLR_VENDA = Util.currency(columns.get(excelCols.indexOf(indexVLR_VENDA)));
+                    }
+                }
+
+                String indexVLR_ULTCOMPRA = jtfProdutosVlrCusto.getText();
+                if (jcbProdutosVlrCusto.isSelected()
+                        && StringUtils.isNotBlank(indexVLR_ULTCOMPRA)) {
+
+                    if (Util.indexExists(columns, excelCols.indexOf(indexVLR_ULTCOMPRA))) {
+                        VLR_ULTCOMPRA = Util.currency(columns.get(excelCols.indexOf(indexVLR_ULTCOMPRA)));
+                    }
+                }
+
+                String indexEST_MIN = jtfProdutosEstMin.getText();
+                if (jcbProdutosEstMin.isSelected()
+                        && StringUtils.isNotBlank(indexEST_MIN)) {
+
+                    if (Util.indexExists(columns, excelCols.indexOf(indexEST_MIN))) {
+                        EST_MIN = Util.currency(columns.get(excelCols.indexOf(indexEST_MIN)));
+                    }
+                }
+
+                String indexEST_ATUAL = jtfProdutosEstAtual.getText();
+                if (jcbProdutosEstAtual.isSelected()
+                        && StringUtils.isNotBlank(indexEST_ATUAL)) {
+
+                    if (Util.indexExists(columns, excelCols.indexOf(indexEST_ATUAL))) {
+                        EST_ATUAL = Util.currency(columns.get(excelCols.indexOf(indexEST_ATUAL)));
+                    }
+                }
+
+                String indexMARCA = jtfProdutosMarca.getText();
+                if (jcbProdutosMarca.isSelected()
+                        && StringUtils.isNotBlank(indexMARCA)) {
+
+                    if (Util.indexExists(columns, excelCols.indexOf(indexMARCA))) {
+                        MARCA = columns.get(excelCols.indexOf(indexMARCA));
+                    }
+                }
+
+                String indexGRUPO = jtfProdutosGrupo.getText();
+                if (jcbProdutosGrupo.isSelected()
+                        && StringUtils.isNotBlank(indexGRUPO)) {
+
+                    if (Util.indexExists(columns, excelCols.indexOf(indexGRUPO))) {
+                        indexGRUPO = columns.get(excelCols.indexOf(indexGRUPO));
+                        if (StringUtils.isNumeric(indexGRUPO)) {
+                            GRUPO = Integer.valueOf(indexGRUPO);
+                        }
+                    }
+                }
+
+                String indexSITTRIB = jtfProdutosSitTrib.getText();
+                if (jcbProdutosSitTrib.isSelected()
+                        && StringUtils.isNotBlank(indexSITTRIB)) {
+
+                    if (Util.indexExists(columns, excelCols.indexOf(indexSITTRIB))) {
+                        indexSITTRIB = columns.get(excelCols.indexOf(indexSITTRIB));
+
+                        SITTRIB = getSitTrib(indexSITTRIB);
+                    }
+                }
+
+                String indexCLASSFISCAL = jtfProdutosClassFiscal.getText();
+                if (jcbProdutosClassFiscal.isSelected()
+                        && StringUtils.isNotBlank(indexCLASSFISCAL)) {
+
+                    if (Util.indexExists(columns, excelCols.indexOf(indexCLASSFISCAL))) {
+                        indexCLASSFISCAL = columns.get(excelCols.indexOf(indexCLASSFISCAL));
+
+                        CLASSFISCAL = getClassFiscal(indexCLASSFISCAL);
+                    }
+                }
+
+                logger.info("Importando: " + IDPRODUTO + " - DESC.: " + DESCRICAO + " - VLR. VENDA: " + VLR_VENDA);
+                try (PreparedStatement pst = conn.prepareStatement(query.toString())) {
+                    pst.setInt(1, IDEMPRESA);
+                    pst.setString(2, String.format("%08d", IDPRODUTO));
+                    pst.setString(3, DESCRICAO);
+                    pst.setString(4, TIPO);
+                    pst.setString(5, UN);
+                    pst.setString(6, BARRAS);
+                    pst.setString(7, REFERENCIA);
+                    pst.setDouble(8, VLR_VENDA);
+                    pst.setDouble(9, VLR_ULTCOMPRA);
+                    pst.setDouble(10, EST_MIN);
+                    pst.setDouble(11, EST_ATUAL);
+                    pst.setString(12, MARCA);
+                    pst.setInt(13, GRUPO);
+                    pst.setInt(14, SITTRIB);
+                    pst.setInt(15, NATOPERPADRAOVENDAS);
+                    pst.setInt(16, CLASSFISCAL);
+                    pst.setString(17, FORADELINHA);
+                    pst.execute();
+                }
+
+                jpbProgress.setValue(countLines);
+                jpbProgress.setString("Importando produtos " + countLines + " de " + lastLine);
+                countLines++;
+                IDPRODUTO++;
+            }
+
+            if (!conn.getAutoCommit()) {
+                conn.commit();
+            }
+
+            jpbProgress.setMaximum(100);
+            jpbProgress.setString("Finalizada importação com sucesso!");
+            logger.info("==================== Finalizado importação de Produtos ====================");
+            JOptionPane.showMessageDialog(this, "Finalizada importação de produtos com sucesso!");
+            jbImportProducts.setEnabled(true);
+        } catch (SQLException | ClassNotFoundException | FileNotFoundException ex) {
+            logger.error("# Erro ao realizar importação, motivo:");
+            logger.error(ExceptionUtils.getStackTrace(ex));
+            jbImportProducts.setEnabled(true);
+            JOptionPane.showMessageDialog(this, "Erro ao realizar importação, motivo:\n"
+                    + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
     private void importClientToFDB() {
         jbImportClients.setEnabled(false);
 
         try {
             logger.info("==================== Iniciando importação de Clientes ====================");
+
+            logger.info("# Carregando cidades do banco de dados, aguarde...");
+            cidades = new ControllerData().getCidades();
+            logger.info("# Cidades carregadas!");
 
             Connection conn = new Database().getConnection();
             conn.setAutoCommit(false);
@@ -1909,6 +2145,67 @@ public class Main extends javax.swing.JFrame {
         }
     }
 
+    private String getUnidade(final String UN) {
+        boolean exists = unidades.stream()
+                .filter(u -> u.getUnMed().equals(UN.toUpperCase()))
+                .findFirst().isPresent();
+
+        if (!exists) {
+            UnMedEnum unMed = null;
+            try {
+                unMed = UnMedEnum.valueOf(UN);
+            } catch (Exception ex) {
+                unMed = UnMedEnum.valueOf("UN");
+            }
+
+            new ControllerData().saveUnMed(unMed.getunMed(), unMed.getNome());
+            return unMed.getunMed();
+        } else {
+            return UN;
+        }
+    }
+
+    private int getSitTrib(String indexSITTRIB) {
+        int IDSITTRIB = 0;
+
+        if (StringUtils.isNotBlank(indexSITTRIB)) {
+
+            if (indexSITTRIB.length() == 2) {
+                indexSITTRIB = "0" + indexSITTRIB;
+            }
+            final String searchSITTRIB = indexSITTRIB;
+            ModelSitTrib sitTrib = sitTribs.stream().filter(s -> s.getCst().equals(searchSITTRIB)
+                    || s.getCsosn().equals(searchSITTRIB)).findFirst().orElse(null);
+
+            if (sitTrib != null) {
+                return sitTrib.getId();
+            }
+
+        }
+
+        return IDSITTRIB;
+    }
+
+    private int getClassFiscal(String CLASSFISCAL) {
+        int IDCLASSFISCAL = 0;
+
+        if (StringUtils.isNotBlank(CLASSFISCAL)) {
+
+            final String searchNCM = CLASSFISCAL.replaceAll("\\D", "");
+            ModelClassFiscal classFiscal = classfiscals.stream().filter(c -> {
+                String ncm = c.getNcm().replaceAll("\\D", "");
+                return ncm.equals(searchNCM);
+            }).findFirst().orElse(null);
+
+            if (classFiscal != null) {
+                return classFiscal.getId();
+            }
+
+        }
+
+        return IDCLASSFISCAL;
+    }
+
     class UpperCase extends PlainDocument {
 
         @Override
@@ -1997,12 +2294,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JCheckBox jcbHeaderExistsClient;
     private javax.swing.JCheckBox jcbHeaderExistsProducts;
     private javax.swing.JCheckBox jcbProdutosCFOP;
-    private javax.swing.JCheckBox jcbProdutosCategoria;
     private javax.swing.JCheckBox jcbProdutosClassFiscal;
     private javax.swing.JCheckBox jcbProdutosCodBarras;
     private javax.swing.JCheckBox jcbProdutosDescricao;
     private javax.swing.JCheckBox jcbProdutosEstAtual;
     private javax.swing.JCheckBox jcbProdutosEstMin;
+    private javax.swing.JCheckBox jcbProdutosGrupo;
     private javax.swing.JCheckBox jcbProdutosMarca;
     private javax.swing.JCheckBox jcbProdutosRef;
     private javax.swing.JCheckBox jcbProdutosSitTrib;
@@ -2037,12 +2334,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jtfPathClientsFile;
     private javax.swing.JTextField jtfPathProductsFile;
     private javax.swing.JTextField jtfProdutosCFOP;
-    private javax.swing.JTextField jtfProdutosCategoria;
     private javax.swing.JTextField jtfProdutosClassFiscal;
     private javax.swing.JTextField jtfProdutosCodBarras;
     private javax.swing.JTextField jtfProdutosDescricao;
     private javax.swing.JTextField jtfProdutosEstAtual;
     private javax.swing.JTextField jtfProdutosEstMin;
+    private javax.swing.JTextField jtfProdutosGrupo;
     private javax.swing.JTextField jtfProdutosMarca;
     private javax.swing.JTextField jtfProdutosRef;
     private javax.swing.JTextField jtfProdutosSitTrib;

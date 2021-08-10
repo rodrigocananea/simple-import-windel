@@ -6,7 +6,10 @@
 package com.ravc.simpleimport.controllers;
 
 import com.ravc.simpleimport.models.ModelCidade;
+import com.ravc.simpleimport.models.ModelClassFiscal;
 import com.ravc.simpleimport.models.ModelEmpresa;
+import com.ravc.simpleimport.models.ModelSitTrib;
+import com.ravc.simpleimport.models.ModelUnMed;
 import com.ravc.simpleimport.utils.Database;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,7 +27,82 @@ import org.apache.log4j.Logger;
 public class ControllerData {
 
     final static Logger logger = Logger.getLogger("");
+
+    public List<ModelClassFiscal> getClassFiscal() {
+        List<ModelClassFiscal> classfiscal = new ArrayList<>();
+
+        try (Connection conn = new Database().getConnection();
+                PreparedStatement pst = conn.prepareStatement("SELECT IDCLASSFISCAL, CLASSIFICACAO FROM CLASSFISCAL")) {
+            try (ResultSet rs = pst.executeQuery()) {
+                while (rs != null && rs.next()) {
+                    ModelClassFiscal ncm = new ModelClassFiscal();
+                    ncm.setId(rs.getInt("IDSITTRIB"));
+                    ncm.setNcm(rs.getString("CODIGO"));
+                    classfiscal.add(ncm);
+                }
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return classfiscal;
+    }
     
+    
+    public List<ModelSitTrib> getSitTribs() {
+        List<ModelSitTrib> sittribs = new ArrayList<>();
+
+        try (Connection conn = new Database().getConnection();
+                PreparedStatement pst = conn.prepareStatement("SELECT IDSITTRIB, CODIGO, CSOSN FROM EMPRESAS")) {
+            try (ResultSet rs = pst.executeQuery()) {
+                while (rs != null && rs.next()) {
+                    ModelSitTrib sittrib = new ModelSitTrib();
+                    sittrib.setId(rs.getInt("IDSITTRIB"));
+                    sittrib.setCst(rs.getString("CODIGO"));
+                    sittrib.setCsosn(rs.getString("CSOSN"));
+                    sittribs.add(sittrib);
+                }
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return sittribs;
+    }
+
+    public void saveUnMed(String IDUN, String DESCRICAO) {
+        try (Connection conn = new Database().getConnection();
+                PreparedStatement pst = conn.prepareStatement("INSERT INTO UN (IDUN, DESCRICAO)\n"
+                        + "VALUES (?, ?);")) {
+            pst.setString(1, IDUN);
+            pst.setString(2, DESCRICAO);
+            pst.execute();
+        } catch (Exception ex) {
+            logger.error("Não foi possível gravar uma nova unidade de medida, motivo:");
+            logger.error(ExceptionUtils.getStackTrace(ex));
+        }
+    }
+
+    public List<ModelUnMed> getUnidades() {
+        List<ModelUnMed> unidades = new ArrayList<>();
+
+        try (Connection conn = new Database().getConnection();
+                PreparedStatement pst = conn.prepareStatement("SELECT IDUN, DESCRICAO FROM EMPRESAS")) {
+            try (ResultSet rs = pst.executeQuery()) {
+                while (rs != null && rs.next()) {
+                    ModelUnMed un = new ModelUnMed();
+                    un.setUnMed(rs.getString("IDUN"));
+                    un.setDescricao(rs.getString("DESCRICAO"));
+                    unidades.add(un);
+                }
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return unidades;
+    }
+
     public List<ModelEmpresa> getEmpresas() {
         List<ModelEmpresa> empresas = new ArrayList<>();
 
@@ -40,7 +118,6 @@ public class ControllerData {
                 }
             }
         } catch (Exception ex) {
-            ex.printStackTrace();
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
 
@@ -63,7 +140,6 @@ public class ControllerData {
                 }
             }
         } catch (Exception ex) {
-            ex.printStackTrace();
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
 
@@ -83,6 +159,25 @@ public class ControllerData {
             }
         } catch (Exception ex) {
             logger.error("Problemas ao obter ultimo IDPESSOA, motivo:");
+            logger.error(ExceptionUtils.getStackTrace(ex));
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        return idPessoa;
+    }
+
+    public int getLastIdProduct(int idEmpresa) {
+        int idPessoa = 0;
+        try (Connection conn = new Database().getConnection();
+                PreparedStatement pst = conn.prepareStatement("SELECT MAX(IDPRODUTO)+1 AS LASTID FROM PRODUTOS"
+                        + " WHERE IDEMPRESA = ?")) {
+            pst.setInt(1, idEmpresa);
+            try (ResultSet rs = pst.executeQuery()) {
+                if (rs != null && rs.next()) {
+                    idPessoa = rs.getInt("LASTID");
+                }
+            }
+        } catch (Exception ex) {
+            logger.error("Problemas ao obter ultimo IDPRODUTO, motivo:");
             logger.error(ExceptionUtils.getStackTrace(ex));
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }

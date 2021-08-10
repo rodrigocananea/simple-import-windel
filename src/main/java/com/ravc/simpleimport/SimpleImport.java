@@ -7,12 +7,15 @@ package com.ravc.simpleimport;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.intellijthemes.FlatOneDarkIJTheme;
+import com.ravc.simpleimport.utils.FileTypeFilter;
 import com.ravc.simpleimport.utils.SimpleImportProp;
 import com.ravc.simpleimport.views.Main;
 import com.ravc.simpleimport.views.SplashScreen;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileFilter;
 
 /**
  *
@@ -55,7 +58,6 @@ public class SimpleImport {
         screen.jlStatus.setText("Verificando arquivo LOCAL.cfg, aguarde...");
         Thread.sleep(1000);
         File local = new File(System.getProperty("user.dir") + File.separator + "LOCAL.cfg");
-        System.out.println(local.getPath());
         if (local.exists()) {
             try (Scanner sc = new Scanner(local)) {
                 String line = sc.nextLine();
@@ -71,6 +73,21 @@ public class SimpleImport {
             }
         } else {
             screen.jlStatus.setText("LOCAL.cfg não existe!");
+
+            File FDB = new File(SIProp.prop().getString("host.database"));
+            if (!FDB.exists()) {
+                JFileChooser fileChooser = new JFileChooser(".");
+                FileFilter fdbFilter = new FileTypeFilter(".FDB", "Firebird Database");
+                fileChooser.addChoosableFileFilter(fdbFilter);
+                fileChooser.setFileFilter(fdbFilter);
+                int status = fileChooser.showOpenDialog(null);
+                if (status == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    SIProp.setProp("host.database", selectedFile.getPath());
+                } else {
+                    System.exit(0);
+                }
+            }
         }
     }
 
