@@ -36,8 +36,8 @@ public class ControllerData {
             try (ResultSet rs = pst.executeQuery()) {
                 while (rs != null && rs.next()) {
                     ModelClassFiscal ncm = new ModelClassFiscal();
-                    ncm.setId(rs.getInt("IDSITTRIB"));
-                    ncm.setNcm(rs.getString("CODIGO"));
+                    ncm.setId(rs.getInt("IDCLASSFISCAL"));
+                    ncm.setNcm(rs.getString("CLASSIFICACAO"));
                     classfiscal.add(ncm);
                 }
             }
@@ -47,13 +47,12 @@ public class ControllerData {
 
         return classfiscal;
     }
-    
-    
+
     public List<ModelSitTrib> getSitTribs() {
         List<ModelSitTrib> sittribs = new ArrayList<>();
 
         try (Connection conn = new Database().getConnection();
-                PreparedStatement pst = conn.prepareStatement("SELECT IDSITTRIB, CODIGO, CSOSN FROM EMPRESAS")) {
+                PreparedStatement pst = conn.prepareStatement("SELECT IDSITTRIB, CODIGO, CSOSN FROM SITTRIB")) {
             try (ResultSet rs = pst.executeQuery()) {
                 while (rs != null && rs.next()) {
                     ModelSitTrib sittrib = new ModelSitTrib();
@@ -87,7 +86,7 @@ public class ControllerData {
         List<ModelUnMed> unidades = new ArrayList<>();
 
         try (Connection conn = new Database().getConnection();
-                PreparedStatement pst = conn.prepareStatement("SELECT IDUN, DESCRICAO FROM EMPRESAS")) {
+                PreparedStatement pst = conn.prepareStatement("SELECT IDUN, DESCRICAO FROM UN ")) {
             try (ResultSet rs = pst.executeQuery()) {
                 while (rs != null && rs.next()) {
                     ModelUnMed un = new ModelUnMed();
@@ -166,14 +165,14 @@ public class ControllerData {
     }
 
     public int getLastIdProduct(int idEmpresa) {
-        int idPessoa = 0;
+        int idProduto = 0;
         try (Connection conn = new Database().getConnection();
-                PreparedStatement pst = conn.prepareStatement("SELECT MAX(IDPRODUTO)+1 AS LASTID FROM PRODUTOS"
-                        + " WHERE IDEMPRESA = ?")) {
+                PreparedStatement pst = conn.prepareStatement("SELECT MAX(IDPRODUTO) AS IDPRODUTO FROM PRODUTOS "
+                        + "WHERE IDEMPRESA = ? ")) {
             pst.setInt(1, idEmpresa);
             try (ResultSet rs = pst.executeQuery()) {
                 if (rs != null && rs.next()) {
-                    idPessoa = rs.getInt("LASTID");
+                    idProduto = rs.getInt("IDPRODUTO") + 1;
                 }
             }
         } catch (Exception ex) {
@@ -181,6 +180,6 @@ public class ControllerData {
             logger.error(ExceptionUtils.getStackTrace(ex));
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
-        return idPessoa;
+        return idProduto;
     }
 }

@@ -1640,7 +1640,7 @@ public class Main extends javax.swing.JFrame {
             conn.setAutoCommit(false);
 
             StringBuilder query = new StringBuilder();
-            query.append("INSERT INTO PESSOAS (IDEMPRESA, IDPRODUTO, DESCRICAO, TIPO, UN, "
+            query.append("INSERT INTO PRODUTOS (IDEMPRESA, IDPRODUTO, DESCRICAO, TIPO, UN, "
                     + "BARRAS, REFERENCIA, VLR_VENDA, VLR_ULTCOMPRA, EST_MIN, EST_ATUAL, MARCA, GRUPO, "
                     + "SITTRIB, NATOPERPADRAOVENDAS, CLASSFISCAL, FORADELINHA)\n"
                     + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
@@ -2134,21 +2134,20 @@ public class Main extends javax.swing.JFrame {
 
     private String getUnidade(final String UN) {
         boolean exists = unidades.stream()
-                .filter(u -> u.getUnMed().equals(UN.toUpperCase()))
+                .filter(u -> u.getUnMed().toUpperCase().equals(UN.toUpperCase()))
                 .findFirst().isPresent();
 
         if (!exists) {
             UnMedEnum unMed = null;
             try {
-                unMed = UnMedEnum.valueOf(UN);
+                unMed = UnMedEnum.valueOf(UN.toUpperCase());
+                new ControllerData().saveUnMed(unMed.getunMed(), unMed.getNome());
+                return unMed.getunMed();
             } catch (Exception ex) {
-                unMed = UnMedEnum.valueOf("UN");
+                return "UN";
             }
-
-            new ControllerData().saveUnMed(unMed.getunMed(), unMed.getNome());
-            return unMed.getunMed();
         } else {
-            return UN;
+            return UN.toUpperCase();
         }
     }
 
