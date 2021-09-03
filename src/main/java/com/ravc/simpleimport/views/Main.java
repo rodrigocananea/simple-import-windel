@@ -1997,6 +1997,9 @@ public class Main extends javax.swing.JFrame {
                         && StringUtils.isNotBlank(indexNUMEROENDER)) {
                     if (Util.indexExists(columns, excelCols.indexOf(indexNUMEROENDER))) {
                         NUMEROENDER = columns.get(excelCols.indexOf(indexNUMEROENDER));
+                        if (NUMEROENDER.replaceAll("\\D", "").equals("")) {
+                            NUMEROENDER = "S/N";
+                        }
                     }
                 }
 
@@ -2032,7 +2035,26 @@ public class Main extends javax.swing.JFrame {
                         PRI_CIDADE = getCidade(searchPRI_CIDADE, empresa.getIdCidade());
                     }
                 }
-
+                System.out.println("");
+                System.out.println("IDEMPRESA: " + IDEMPRESA);
+                System.out.println("IDPESSOA: " + IDPESSOA);
+                System.out.println("NOME: " + NOME);
+                System.out.println("TIPO_FJ: " + TIPO_FJ);
+                System.out.println("CNPJCPF: " + CNPJCPF);
+                System.out.println("INSCR_EST: " + INSCR_EST);
+                System.out.println("DATANASCIMENTO: " + DATANASCIMENTO);
+                System.out.println("FANTASIA: " + FANTASIA);
+                System.out.println("FONE1: " + FONE1);
+                System.out.println("FONE2: " + FONE2);
+                System.out.println("EMAIL: " + EMAIL);
+                System.out.println("DATACADASTRO: " + DATACADASTRO);
+                System.out.println("PRI_ENDERECO: " + PRI_ENDERECO);
+                System.out.println("PRI_COMPLEMENTO: " + PRI_COMPLEMENTO);
+                System.out.println("PRI_CEP: " + PRI_CEP);
+                System.out.println("PRI_CIDADE: " + PRI_CIDADE);
+                System.out.println("PRI_BAIRRO: " + PRI_BAIRRO);
+                System.out.println("NUMEROENDER: " + NUMEROENDER);
+                System.out.println("");
                 logger.info("Importando: " + IDPESSOA + " - NOME: " + NOME + " - CNPJ/CPF: " + CNPJCPF);
                 try (PreparedStatement pst = conn.prepareStatement(query.toString())) {
                     pst.setInt(1, IDEMPRESA);
@@ -2075,7 +2097,7 @@ public class Main extends javax.swing.JFrame {
             logger.info("==================== Finalizado importação de Clientes ====================");
             JOptionPane.showMessageDialog(this, "Finalizada importação de clientes com sucesso!");
             jbImportClients.setEnabled(true);
-        } catch (SQLException | ClassNotFoundException | FileNotFoundException ex) {
+        } catch (Exception ex) {
             logger.error("# Erro ao realizar importação, motivo:");
             logger.error(ExceptionUtils.getStackTrace(ex));
             jbImportClients.setEnabled(true);
@@ -2103,10 +2125,10 @@ public class Main extends javax.swing.JFrame {
         int found = 0;
         ModelCidade cidade = new ModelCidade();
         cidade.setId(cidadeEmpresa);
-
-        if (!nomeOuIBGE.replaceAll("\\D", "").equals("")) {
+        String somenteNumeros = nomeOuIBGE.replaceAll("\\D", "");
+        if (!somenteNumeros.equals("")) {
             cidade = cidades.stream()
-                    .filter(c -> c.getIbge() == Integer.valueOf(nomeOuIBGE))
+                    .filter(c -> c.getIbge() == Integer.valueOf(somenteNumeros))
                     .findFirst().orElse(cidade);
             found = cidade.getId();
         } else {
