@@ -36,7 +36,7 @@ public class ControllerData {
             try (ResultSet rs = pst.executeQuery()) {
                 while (rs != null && rs.next()) {
                     ModelClassFiscal ncm = new ModelClassFiscal();
-                    ncm.setId(rs.getInt("IDCLASSFISCAL"));
+                    ncm.setId(rs.getString("IDCLASSFISCAL"));
                     ncm.setNcm(rs.getString("CLASSIFICACAO"));
                     classfiscal.add(ncm);
                 }

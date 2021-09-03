@@ -11,17 +11,17 @@ package com.ravc.simpleimport.models;
  */
 public class ModelClassFiscal {
     
-    int id;
+    String id;
     String ncm;
 
     public ModelClassFiscal() {
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

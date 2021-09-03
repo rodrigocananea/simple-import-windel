@@ -1661,7 +1661,7 @@ public class Main extends javax.swing.JFrame {
             int GRUPO = 0;
             int SITTRIB = 0;
             int NATOPERPADRAOVENDAS = 0;
-            int CLASSFISCAL = 0;
+            String CLASSFISCAL = "";
             String FORADELINHA = "N";
 
             int skip = jcbHeaderExistsProducts.isSelected() ? 1 : 0;
@@ -1815,7 +1815,7 @@ public class Main extends javax.swing.JFrame {
                     pst.setInt(13, GRUPO);
                     pst.setInt(14, SITTRIB);
                     pst.setInt(15, NATOPERPADRAOVENDAS);
-                    pst.setInt(16, CLASSFISCAL);
+                    pst.setString(16, CLASSFISCAL);
                     pst.setString(17, FORADELINHA);
                     pst.execute();
                 }
@@ -2172,8 +2172,8 @@ public class Main extends javax.swing.JFrame {
         return IDSITTRIB;
     }
 
-    private int getClassFiscal(String CLASSFISCAL) {
-        int IDCLASSFISCAL = 0;
+    private String getClassFiscal(String CLASSFISCAL) {
+        String IDCLASSFISCAL = "";
 
         if (StringUtils.isNotBlank(CLASSFISCAL)) {
 
@@ -2184,7 +2184,7 @@ public class Main extends javax.swing.JFrame {
             }).findFirst().orElse(null);
 
             if (classFiscal != null) {
-                return classFiscal.getId();
+                IDCLASSFISCAL = classFiscal.getId();
             }
 
         }
