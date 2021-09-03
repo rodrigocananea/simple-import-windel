@@ -1642,8 +1642,9 @@ public class Main extends javax.swing.JFrame {
             StringBuilder query = new StringBuilder();
             query.append("INSERT INTO PRODUTOS (IDEMPRESA, IDPRODUTO, DESCRICAO, TIPO, UN, "
                     + "BARRAS, REFERENCIA, VLR_VENDA, VLR_ULTCOMPRA, EST_MIN, EST_ATUAL, MARCA, GRUPO, "
-                    + "SITTRIB, NATOPERPADRAOVENDAS, CLASSFISCAL, FORADELINHA)\n"
-                    + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
+                    + "SITTRIB, NATOPERPADRAOVENDAS, CLASSFISCAL, FORADELINHA, RECOLHE_IMPOSTOS,"
+                    + "SERVICO, RECEITUARIO)\n"
+                    + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
 
             ModelEmpresa empresa = (ModelEmpresa) jcbEmpresa.getSelectedItem();
             int IDEMPRESA = empresa.getId();
@@ -1663,6 +1664,9 @@ public class Main extends javax.swing.JFrame {
             int NATOPERPADRAOVENDAS = 0;
             String CLASSFISCAL = "";
             String FORADELINHA = "N";
+            String RECOLHE_IMPOSTOS = "N";
+            String SERVICO = "N";
+            String RECEITUARIO = "N";
 
             int skip = jcbHeaderExistsProducts.isSelected() ? 1 : 0;
             List<String> fileImport = new BufferedReader(
@@ -1817,6 +1821,9 @@ public class Main extends javax.swing.JFrame {
                     pst.setInt(15, NATOPERPADRAOVENDAS);
                     pst.setString(16, CLASSFISCAL);
                     pst.setString(17, FORADELINHA);
+                    pst.setString(18, RECOLHE_IMPOSTOS);
+                    pst.setString(19, SERVICO);
+                    pst.setString(20, RECEITUARIO);
                     pst.execute();
                 }
 
