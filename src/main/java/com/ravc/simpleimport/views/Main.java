@@ -285,6 +285,7 @@ public class Main extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jtaLogs = new javax.swing.JTextArea();
         jpFields = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jcbEmpresa = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
@@ -413,6 +414,8 @@ public class Main extends javax.swing.JFrame {
         jpFields.setPreferredSize(new java.awt.Dimension(580, 389));
         jpFields.setLayout(new java.awt.BorderLayout());
 
+        jPanel6.setLayout(new java.awt.BorderLayout());
+
         jPanel5.setPreferredSize(new java.awt.Dimension(580, 60));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -441,7 +444,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jpFields.add(jPanel5, java.awt.BorderLayout.NORTH);
+        jPanel6.add(jPanel5, java.awt.BorderLayout.NORTH);
 
         jLabel1.setText("Caminho do arquivo (csv/txt separado por ';'):");
 
@@ -798,7 +801,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbImportClients)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Clientes", jPanel2);
@@ -1125,12 +1128,14 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbImportProducts)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Produtos", jPanel3);
 
-        jpFields.add(jTabbedPane1, java.awt.BorderLayout.CENTER);
+        jPanel6.add(jTabbedPane1, java.awt.BorderLayout.CENTER);
+
+        jpFields.add(jPanel6, java.awt.BorderLayout.PAGE_START);
 
         jPanel1.add(jpFields, java.awt.BorderLayout.EAST);
 
@@ -2221,6 +2226,10 @@ public class Main extends javax.swing.JFrame {
         return IDCLASSFISCAL;
     }
 
+    private void importProductsEvoluTI() {
+        
+    }
+
     class UpperCase extends PlainDocument {
 
         @Override
@@ -2278,6 +2287,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPopupMenu.Separator jSeparator1;

@@ -25424,3 +25424,7 @@ Caused by: org.firebirdsql.jdbc.FBSQLExceptionInfo: Dynamic SQL Error
 03.09.2021 16:24:41 INFO  :2058 - Importando: 5751 - NOME: ZINGLER E ZINGLER FILIAL - CNPJ/CPF: 08.519.493/0002-63
 03.09.2021 16:24:41 INFO  :2058 - Importando: 5752 - NOME: ZINGLER E ZINGLER LTDA - CNPJ/CPF: 08.519.493/0001-82
 03.09.2021 16:24:41 INFO  :2097 - ==================== Finalizado importação de Clientes ====================
+06.09.2021 14:16:22 INFO  :265 - ########################
+06.09.2021 14:16:22 INFO  :266 - ### Aplicação inciada! ###
+06.09.2021 14:16:22 INFO  :2111 - # Carregando empresas no sistema, aguarde...
+06.09.2021 14:16:24 INFO  :2120 - # Empresas carregadas com sucesso.

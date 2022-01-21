@@ -19,10 +19,17 @@ public class Database {
     private Connection connection;
 
     public Database() throws SQLException, ClassNotFoundException {
-        this.url = "jdbc:firebirdsql:local:"
-//                + SIProp.prop().getString("host.name", "localhost") + "/" + SIProp.prop().getString("host.port", "3050")
-//                + ":" 
+        this.url = "jdbc:firebirdsql:local:" 
                 + SIProp.prop().getString("host.database")
+                + SIProp.prop().getString("host.params", "");
+        this.userName = SIProp.prop().getString("host.user", "SYSDBA");
+        this.password = SIProp.prop().getString("host.password", "masterkey");
+        setConnection();
+    }
+    
+    public Database(String database) throws SQLException, ClassNotFoundException {
+        this.url = "jdbc:firebirdsql:local:" 
+                + database
                 + SIProp.prop().getString("host.params", "");
         this.userName = SIProp.prop().getString("host.user", "SYSDBA");
         this.password = SIProp.prop().getString("host.password", "masterkey");

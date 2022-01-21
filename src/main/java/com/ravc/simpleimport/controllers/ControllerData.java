@@ -8,6 +8,7 @@ package com.ravc.simpleimport.controllers;
 import com.ravc.simpleimport.models.ModelCidade;
 import com.ravc.simpleimport.models.ModelClassFiscal;
 import com.ravc.simpleimport.models.ModelEmpresa;
+import com.ravc.simpleimport.models.ModelPessoa;
 import com.ravc.simpleimport.models.ModelSitTrib;
 import com.ravc.simpleimport.models.ModelUnMed;
 import com.ravc.simpleimport.utils.Database;
@@ -28,6 +29,27 @@ public class ControllerData {
 
     final static Logger logger = Logger.getLogger("");
 
+    public List<ModelPessoa> getPessoas(Connection conn) {
+        List<ModelPessoa> pessoas = new ArrayList<>();
+
+        try (PreparedStatement pst = conn.prepareStatement("SELECT * FROM PESSOAS WHERE IDTIPO_PS = 1")) {
+            try (ResultSet rs = pst.executeQuery()) {
+                while (rs != null && rs.next()) {
+                    ModelPessoa pessoa = new ModelPessoa();
+                    pessoa.setIdPessoa(rs.getInt("IDPESSOA"));
+                    pessoa.setIdTipo_ps(rs.getInt("IDTIPO_PS"));
+                    pessoa.setCnpjCpf(rs.getString("CNPJCPF"));
+                    pessoa.setIe(rs.getString("INSCR_EST"));
+                    pessoas.add(pessoa);
+                }
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return pessoas;
+    }
+    
     public List<ModelClassFiscal> getClassFiscal() {
         List<ModelClassFiscal> classfiscal = new ArrayList<>();
 
