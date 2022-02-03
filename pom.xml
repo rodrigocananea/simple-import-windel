@@ -101,7 +101,7 @@
                         </goals>
                         <configuration>
                             <headerType>gui</headerType>
-                            <outfile>SimpleImport.exe</outfile>
+                            <outfile>target/SimpleImport.exe</outfile>
                             <jar>target/SimpleImport.jar</jar>
                             <errTitle>encc</errTitle>
                             <icon>src/main/resources/icons/icons8_doge_48px.ico</icon>
