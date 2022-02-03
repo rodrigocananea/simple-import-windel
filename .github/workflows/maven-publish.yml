@@ -18,8 +18,7 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - name: Compile code
-      run: mvn -B compile
-      run: dir
+      run: mvn -B compile && dir
       
   release:
     runs-on: windows-2022
@@ -33,7 +32,7 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - run: mvn -B package --file pom.xml
-    - run: mkdir staging && cp target/*.exe staging
+    - run: mkdir staging && cp target/*.exe staging && dir
     - uses: actions/upload-artifact@v2
       with:
         name: SimpleImport
