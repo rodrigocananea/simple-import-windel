@@ -3,8 +3,6 @@ name: Java CI with Maven
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
 
@@ -24,6 +22,7 @@ jobs:
       
   release:
     runs-on: windows-latest
+    needs: [ compile ]
     name: Release assets
     steps:
     - uses: actions/checkout@v2
@@ -32,9 +31,9 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
         cache: maven
-    - run: mvn --batch-mode --update-snapshots verify
-    - run: mkdir staging && cp target/*.jar staging
+    - run: mvn -B package --file pom.xml
+    - run: mkdir staging && cp target/*.exe staging
     - uses: actions/upload-artifact@v2
       with:
         name: SimpleImport
-        path: staging/SimpleImport.jar
+        path: staging
