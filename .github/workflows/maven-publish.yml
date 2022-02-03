@@ -2,8 +2,7 @@ name: Java CI with Maven
 
 on:
   push:
-    tags:
-      - '*'
+    branches: [ master ]
 
 jobs:
 
@@ -38,12 +37,3 @@ jobs:
       with:
         name: SimpleImport
         path: staging
-    - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v2
-      with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: target/SimpleImport.exe
-        asset_name: SimpleImport.exe
-        tag: ${{ github.ref }}
-        overwrite: true
-        body: "This is my release text"
