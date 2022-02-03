@@ -19,12 +19,17 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - name: Compile code
-      run: mvn -B compile
+    - run: mvn --batch-mode --update-snapshots verify
+    - run: mkdir staging && cp target/*.jar staging
+    - uses: actions/upload-artifact@v2
+      with:
+        name: SimpleImport
+        path: staging/SimpleImport.jar
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: target/SimpleImport.jar
+        file: SimpleImport.zip
         asset_name: SimpleImport
         tag: ${{ github.ref }}
         overwrite: true
