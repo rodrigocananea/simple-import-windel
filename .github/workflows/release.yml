@@ -41,6 +41,8 @@ jobs:
       with:
         name: SimpleImport
         path: staging/SimpleImport.exe
+    - name: Listando diretório
+        run: dir
 
   release:
       name: Liberar versão
@@ -53,6 +55,8 @@ jobs:
           with:
             name: SimpleImport
             path: staging/SimpleImport.exe
+        - name: Listando diretório
+          run: dir
         - name: Gerando versão
           uses: svenstaro/upload-release-action@v2
           with:
