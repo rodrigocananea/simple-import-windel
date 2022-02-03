@@ -36,6 +36,7 @@ jobs:
         cache: maven
     - name: Compile code
       run: mvn -B package --file pom.xml && mkdir staging && cp target/*.exe staging
+    - name: Upload Artifacts
       uses: actions/upload-artifact@v2
       with:
         name: SimpleImport
