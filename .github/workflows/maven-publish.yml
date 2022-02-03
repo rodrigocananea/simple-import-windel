@@ -19,6 +19,7 @@ jobs:
         cache: maven
     - name: Compile code
       run: mvn -B compile
+      run: dir
       
   release:
     runs-on: windows-2022
