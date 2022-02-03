@@ -2,12 +2,13 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ master ]
+    tags:
+      - '*'
 
 jobs:
 
   compile:
-    runs-on: windows-latest
+    runs-on: windows-2022
     name: Compile
     steps:
     - uses: actions/checkout@v2
@@ -21,7 +22,7 @@ jobs:
       run: mvn -B compile
       
   release:
-    runs-on: windows-latest
+    runs-on: windows-2022
     needs: [ compile ]
     name: Release assets
     steps:
@@ -37,3 +38,12 @@ jobs:
       with:
         name: SimpleImport
         path: staging
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: target/SimpleImport.exe
+        asset_name: SimpleImport.exe
+        tag: ${{ github.ref }}
+        overwrite: true
+        body: "This is my release text"
