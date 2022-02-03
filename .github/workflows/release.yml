@@ -35,9 +35,9 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - name: Compile code
-    - run: mvn -B package --file pom.xml
-    - run: mkdir staging && cp target/*.exe staging
-    - uses: actions/upload-artifact@v2
+      run: mvn -B package --file pom.xml
+      run: mkdir staging && cp target/*.exe staging
+      uses: actions/upload-artifact@v2
       with:
         name: SimpleImport
         path: staging/SimpleImport.exe
