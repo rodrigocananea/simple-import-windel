@@ -40,7 +40,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: SimpleImport
-        path: staging/SimpleImport.exe
+        path: ./staging/SimpleImport.exe
 
   release:
       name: Liberar versão
