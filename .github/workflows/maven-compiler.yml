@@ -62,13 +62,25 @@ jobs:
     name: Atualizar FTP
     steps:
     - uses: actions/checkout@v2
+    - name: Criando pastas
+      run: mkdir exe lib
+    - name: Baixando executável
+      uses: actions/download-artifact@master
+      with:
+        name: SimpleImport
+        path: exe
+    - name: Baixando libs
+      uses: actions/download-artifact@master
+      with:
+        name: lib
+        path: lib
     - name: Enviando libs
       uses: SamKirkland/FTP-Deploy-Action@4.2.0
       with:
         server: ftp.evoluti.info
         username: u775355011.simpleimport
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./target/dependency/
+        local-dir: ./lib/
         server-dir: ./teste/
     - name: Enviando executavel
       uses: SamKirkland/FTP-Deploy-Action@4.2.0
@@ -76,10 +88,4 @@ jobs:
         server: ftp.evoluti.info
         username: u775355011.simpleimport
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./target/
-        exclude: |
-          **/.git*
-          **/.git*/**
-          **/node_modules/**
-          **/target/dependency/**
-          **/target/.jar*/**
+        local-dir: ./exe/
