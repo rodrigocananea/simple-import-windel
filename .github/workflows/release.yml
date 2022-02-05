@@ -8,8 +8,8 @@ on:
 jobs:
 
   compile:
-    name: Compilando código
     runs-on: windows-2022
+    name: Compile
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11
@@ -19,27 +19,82 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - name: Compile code
-      run: mvn -B compile
-
+      run: mvn -B compile && dir
+      
   package:
-    name: Empacotar para executável
     runs-on: windows-2022
     needs: [ compile ]
+    name: Empacotar executavel
     steps:
     - uses: actions/checkout@v2
-    - name: Subindo JDK 11
-      uses: actions/setup-java@v2
+    - uses: actions/setup-java@v2
       with:
         java-version: '11'
         distribution: 'adopt'
         cache: maven
-    - name: Gerando executável
-      run: mvn -B package --file pom.xml && mkdir staging && cp target/*.exe staging
-    - name: Subindo executável
-      uses: actions/upload-artifact@v2
+    - run: mvn -B package --file pom.xml
+    - run: mkdir simpleimport && cp target/*.exe simpleimport
+    - uses: actions/upload-artifact@v2
       with:
         name: SimpleImport
-        path: ./staging/SimpleImport.exe
+        path: simpleimport
+        
+  libs:
+    runs-on: windows-2022
+    needs: [ compile ]
+    name: Salvar libs utilizadas
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+        cache: maven
+    - run: mvn install dependency:copy-dependencies 
+    - run: mkdir lib && cp target/dependency/*.jar lib
+    - uses: actions/upload-artifact@v2
+      with:
+        name: lib
+        path: lib
+
+  ftp-deploy:
+    runs-on: windows-2022
+    needs: [ package, libs ]
+    name: Atualizar FTP
+    steps:
+    - uses: actions/checkout@v2
+    - name: Criando pastas
+      run: mkdir executavel && mkdir dependencias
+    - name: Baixando executável
+      uses: actions/download-artifact@master
+      with:
+        name: SimpleImport
+        path: executavel
+    - name: Compactando executavel
+      uses: vimtor/action-zip@v1
+      with:
+        files: executavel/SimpleImport.exe
+        dest: executavel/SimpleImport.zip
+    - name: Baixando libs
+      uses: actions/download-artifact@master
+      with:
+        name: lib
+        path: dependencias
+    - name: Enviando libs
+      uses: SamKirkland/FTP-Deploy-Action@4.2.0
+      with:
+        server: ftp.evoluti.info
+        username: u775355011.simpleimport
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./dependencias/
+        server-dir: ./teste/
+    - name: Enviando executavel
+      uses: SamKirkland/FTP-Deploy-Action@4.2.0
+      with:
+        server: ftp.evoluti.info
+        username: u775355011.simpleimport
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./executavel/
 
   release:
       name: Liberar versão
@@ -47,11 +102,23 @@ jobs:
       needs: [ package ]
       steps:
         - uses: actions/checkout@v2
+        - name: Criando pastas
+          run: mkdir executavel && mkdir dependencias
         - name: Baixando executável
           uses: actions/download-artifact@master
           with:
             name: SimpleImport
-            path: staging/SimpleImport.exe
+            path: executavel
+        - name: Compactando executavel
+          uses: vimtor/action-zip@v1
+          with:
+            files: executavel/SimpleImport.exe
+            dest: executavel/SimpleImport.zip
+        - name: Baixando libs
+          uses: actions/download-artifact@master
+          with:
+            name: lib
+            path: dependencias
         - name: Criando release
           uses: actions/create-release@v1
           id: create_release
@@ -63,12 +130,12 @@ jobs:
             body_path: CHANGELOG.md
           env:
             GITHUB_TOKEN: ${{ github.token }}
-        - name: Subir executavel para release
+        - name: Subir executavel (zip) para release
           uses: actions/upload-release-asset@v1
           env:
             GITHUB_TOKEN: ${{ github.token }}
           with:
             upload_url: ${{ steps.create_release.outputs.upload_url }}
-            asset_path: ./executavel/SimpleImport.exe
-            asset_name: SimpleImport.exe
-            asset_content_type: application/exe
+            asset_path: ./executavel/SimpleImport.zip
+            asset_name: SimpleImport.zip
+            asset_content_type: application/zip

@@ -73,7 +73,7 @@ jobs:
       uses: vimtor/action-zip@v1
       with:
         files: executavel/SimpleImport.exe
-        dest: executavel/SimpleImport.zip
+        dest: executavel/SimpleImport-SNAPSHOT.zip
     - name: Baixando libs
       uses: actions/download-artifact@master
       with:
