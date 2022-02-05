@@ -69,9 +69,8 @@ jobs:
       with:
         name: SimpleImport
         path: executavel
-    - uses: actions/checkout@v2
     - name: Compactando executavel
-      uses: papeloto/action-zip@v1
+      uses: vimtor/action-zip@v1
       with:
         files: executavel/SimpleImport.exe
         dest: executavel/SimpleImport.zip
