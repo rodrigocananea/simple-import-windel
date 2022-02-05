@@ -1,4 +1,4 @@
-name: Publish
+name: Release
 
 on:
   push:
@@ -39,7 +39,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: SimpleImport
-        path: staging/SimpleImport.exe
+        path: ./staging/SimpleImport.exe
 
   release:
       name: Liberar versão
@@ -56,7 +56,7 @@ jobs:
           uses: svenstaro/upload-release-action@v2
           with:
             repo_token: ${{ secrets.GITHUB_TOKEN }}
-            file: staging/SimpleImport.exe
+            file: ./staging/SimpleImport.exe
             asset_name: SimpleImport
             tag: ${{ github.ref }}
             overwrite: true

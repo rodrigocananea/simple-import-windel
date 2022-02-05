@@ -72,6 +72,7 @@
                     </execution>
                 </executions>
             </plugin>
+
             <!--Compilar fat jar com todas dependencias-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

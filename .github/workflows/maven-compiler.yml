@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: Maven Compiler
 
 on:
   push:
@@ -20,10 +20,10 @@ jobs:
     - name: Compile code
       run: mvn -B compile && dir
       
-  release:
+  package:
     runs-on: windows-2022
     needs: [ compile ]
-    name: Release assets
+    name: Empacotar executavel
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-java@v2
@@ -32,8 +32,26 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - run: mvn -B package --file pom.xml
-    - run: mkdir staging && cp target/*.exe staging && dir
+    - run: mkdir staging && cp target/*.exe staging
     - uses: actions/upload-artifact@v2
       with:
         name: SimpleImport
         path: staging
+        
+  libs:
+    runs-on: windows-2022
+    needs: [ compile ]
+    name: Salvar libs utilizadas
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+        cache: maven
+    - run: mvn -B package --file pom.xml
+    - run: mkdir libs && cp target/lib/*.jar libs
+    - uses: actions/upload-artifact@v2
+      with:
+        name: lib
+        path: libs
