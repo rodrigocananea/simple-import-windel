@@ -63,24 +63,24 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Criando pastas
-      run: mkdir exe lib
+      run: mkdir executavel && mkdir dependencias
     - name: Baixando executável
       uses: actions/download-artifact@master
       with:
         name: SimpleImport
-        path: exe
+        path: executavel
     - name: Baixando libs
       uses: actions/download-artifact@master
       with:
         name: lib
-        path: lib
+        path: dependencias
     - name: Enviando libs
       uses: SamKirkland/FTP-Deploy-Action@4.2.0
       with:
         server: ftp.evoluti.info
         username: u775355011.simpleimport
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./lib/
+        local-dir: ./dependencias/
         server-dir: ./teste/
     - name: Enviando executavel
       uses: SamKirkland/FTP-Deploy-Action@4.2.0
@@ -88,4 +88,4 @@ jobs:
         server: ftp.evoluti.info
         username: u775355011.simpleimport
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./exe/
+        local-dir: ./executavel/
