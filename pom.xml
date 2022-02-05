@@ -58,7 +58,7 @@
         <finalName>SimpleImport</finalName>
         <plugins>
             
-            <plugin>
+<!--            <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
                     <execution>
@@ -71,7 +71,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
 
             <!--Compilar fat jar com todas dependencias-->
             <plugin>

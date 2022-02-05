@@ -49,9 +49,9 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
         cache: maven
-    - run: mvn -B package --file pom.xml
-    - run: mkdir libs && cp target/lib/*.jar libs
+    - run: mvn install dependency:copy-dependencies 
+    - run: mkdir lib && cp target/lib/*.jar lib
     - uses: actions/upload-artifact@v2
       with:
         name: lib
-        path: libs
+        path: lib
