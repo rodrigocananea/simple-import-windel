@@ -52,12 +52,23 @@ jobs:
           with:
             name: SimpleImport
             path: staging/SimpleImport.exe
-        - name: Gerando versão
-          uses: svenstaro/upload-release-action@v2
+        - name: Criando release
+          uses: actions/create-release@v1
+          id: create_release
           with:
-            repo_token: ${{ secrets.GITHUB_TOKEN }}
-            file: ./staging/SimpleImport.exe
-            asset_name: SimpleImport
-            tag: ${{ github.ref }}
-            overwrite: true
-            body: "Release compiled to EXE file"
+            draft: false
+            prerelease: false
+            release_name: ${{ steps.version.outputs.version }}
+            tag_name: ${{ github.ref }}
+            body_path: CHANGELOG.md
+          env:
+            GITHUB_TOKEN: ${{ github.token }}
+        - name: Subir executavel para release
+          uses: actions/upload-release-asset@v1
+          env:
+            GITHUB_TOKEN: ${{ github.token }}
+          with:
+            upload_url: ${{ steps.create_release.outputs.upload_url }}
+            asset_path: ./executavel/SimpleImport.exe
+            asset_name: SimpleImport.exe
+            asset_content_type: application/exe
