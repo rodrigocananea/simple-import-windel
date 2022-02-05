@@ -57,15 +57,11 @@ jobs:
         path: lib
 
   ftp-deploy:
-    name: Atualizar FTP
     runs-on: windows-2022
+    needs: [ package, libs ]
+    name: Atualizar FTP
     steps:
     - uses: actions/checkout@v2
-    - name: Baixando executável
-      uses: actions/download-artifact@master
-      with:
-        name: SimpleImport
-        name: lib
     - name: Enviando libs
       uses: SamKirkland/FTP-Deploy-Action@4.2.0
       with:
