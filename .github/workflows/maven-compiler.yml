@@ -50,7 +50,7 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - run: mvn install dependency:copy-dependencies 
-    - run: mkdir lib && cp target/lib/*.jar lib
+    - run: mkdir lib && cp target/dependency/*.jar lib
     - uses: actions/upload-artifact@v2
       with:
         name: lib
