@@ -69,6 +69,11 @@ jobs:
       with:
         name: SimpleImport
         path: executavel
+    - name: Compactando executavel
+      uses: papeloto/action-zip@v1
+      with:
+        files: executavel/SimpleImport.exe
+        dest: executavel/SimpleImport.zip
     - name: Baixando libs
       uses: actions/download-artifact@master
       with:
