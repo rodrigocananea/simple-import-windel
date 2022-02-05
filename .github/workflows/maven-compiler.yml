@@ -32,11 +32,11 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - run: mvn -B package --file pom.xml
-    - run: mkdir staging && cp target/*.exe staging
+    - run: mkdir simpleimport && cp target/*.exe simpleimport
     - uses: actions/upload-artifact@v2
       with:
         name: SimpleImport
-        path: staging
+        path: simpleimport
         
   libs:
     runs-on: windows-2022
@@ -55,3 +55,35 @@ jobs:
       with:
         name: lib
         path: lib
+
+  ftp-deploy:
+    name: Atualizar FTP
+    runs-on: windows-2022
+    steps:
+    - uses: actions/checkout@v2
+    - name: Baixando executável
+      uses: actions/download-artifact@master
+      with:
+        name: SimpleImport
+        name: lib
+    - name: Enviando libs
+      uses: SamKirkland/FTP-Deploy-Action@4.2.0
+      with:
+        server: ftp.evoluti.info
+        username: u775355011.simpleimport
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./target/dependency/
+        server-dir: ./teste/
+    - name: Enviando executavel
+      uses: SamKirkland/FTP-Deploy-Action@4.2.0
+      with:
+        server: ftp.evoluti.info
+        username: u775355011.simpleimport
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./target/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/target/dependency/**
+          **/target/.jar*/**
