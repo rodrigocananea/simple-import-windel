@@ -32,9 +32,9 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
         cache: maven
-    - run: mvn -B package --file pom.xml
-    #- run: mkdir simpleimport && cp target/*.exe simpleimport
-    - uses: actions/upload-artifact@v2
+      run: mvn -B package --file pom.xml
+      #run: mkdir simpleimport && cp target/*.exe simpleimport
+      uses: actions/upload-artifact@v2
       with:
         name: SimpleImport
         path: simpleimport
@@ -97,6 +97,11 @@ jobs:
         local-dir: ./executavel/
 
   notification:
+    runs-on: ubuntu-20.04
+    needs: [ compile, package ]
+    name: Atualizar FTP
+    steps:
+    - uses: actions/checkout@v2
     - name: Enviar E-mail de Falha
       if: ${{ failure() }}
       uses: dawidd6/action-send-mail@v2
