@@ -101,7 +101,7 @@ jobs:
 
   notification:
     runs-on: ubuntu-20.04
-    needs: [ compile, package ]
+    needs: [ compile, package, ftp-deploy ]
     name: Notificação de erros
     steps:
     - uses: actions/checkout@v2
