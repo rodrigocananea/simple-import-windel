@@ -32,8 +32,11 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
         cache: maven
+    - name: Criando executavel
       run: mvn -B package --file pom.xml
+    - name: Criando pasta para Artifacts
       run: mkdir simpleimport && cp target/*.exe simpleimport
+    - name: Subindo executavel para Artifacts
       uses: actions/upload-artifact@v2
       with:
         name: SimpleImport
@@ -99,7 +102,7 @@ jobs:
   notification:
     runs-on: ubuntu-20.04
     needs: [ compile, package ]
-    name: Atualizar FTP
+    name: Notificação de erros
     steps:
     - uses: actions/checkout@v2
     - name: Enviar E-mail de Falha
