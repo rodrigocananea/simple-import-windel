@@ -33,11 +33,11 @@ jobs:
         distribution: 'adopt'
         cache: maven
       run: mvn -B package --file pom.xml
-      #run: mkdir simpleimport && cp target/*.exe simpleimport
+      run: mkdir simpleimport && cp target/*.exe simpleimport
       uses: actions/upload-artifact@v2
       with:
         name: SimpleImport
-        path: simpleimport
+        path: simpleimport22
         
   libs:
     runs-on: windows-2022
