@@ -1,9 +1,10 @@
 {
   "name": "simpleimport",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "description": "Aplicativo para importação de arquivo em CSV/TXT para o banco de dados Windel",
   "main": "index.js",
   "scripts": {
+    "release": "standard-version",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
