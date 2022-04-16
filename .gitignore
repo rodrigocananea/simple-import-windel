@@ -55,3 +55,8 @@ nb-configuration.xml
 release.properties
 pom.xml.releaseBackup
 pom.xml.tag
+
+# Node.js
+.idea
+node_modules/
+package-lock.json

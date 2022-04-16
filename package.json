@@ -1,0 +1,36 @@
+{
+  "name": "simpleimport",
+  "version": "1.0.0",
+  "description": "Aplicativo para importação de arquivo em CSV/TXT para o banco de dados Windel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigocananea/simple-import-windel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodrigocananea/simple-import-windel/issues"
+  },
+  "homepage": "https://github.com/rodrigocananea/simple-import-windel#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^7.0.4",
+    "standard-version": "^9.3.2"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
