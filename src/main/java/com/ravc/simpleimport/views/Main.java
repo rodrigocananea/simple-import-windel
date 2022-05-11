@@ -449,7 +449,7 @@ public class Main extends javax.swing.JFrame {
         jLabel1.setText("Caminho do arquivo (csv/txt separado por ';'):");
 
         jbSearchFileClients.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8_search_20px.png"))); // NOI18N
-        jbSearchFileClients.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbSearchFileClients.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jbSearchFileClients.setMaximumSize(new java.awt.Dimension(45, 30));
         jbSearchFileClients.setMinimumSize(new java.awt.Dimension(45, 30));
         jbSearchFileClients.setPreferredSize(new java.awt.Dimension(45, 30));
@@ -461,7 +461,7 @@ public class Main extends javax.swing.JFrame {
 
         jbImportClients.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8_ssd_20px.png"))); // NOI18N
         jbImportClients.setText("Importar");
-        jbImportClients.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbImportClients.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jbImportClients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbImportClientsActionPerformed(evt);
@@ -517,7 +517,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesDtNasc);
-        jcbClientesDtNasc.setBounds(10, 110, 100, 23);
+        jcbClientesDtNasc.setBounds(10, 110, 100, 20);
 
         jcbClientesEmail.setText("E-mail");
         jcbClientesEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -526,7 +526,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesEmail);
-        jcbClientesEmail.setBounds(190, 110, 103, 23);
+        jcbClientesEmail.setBounds(190, 110, 103, 20);
 
         jtfClientesEmail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -551,7 +551,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesCPFCNPJ);
-        jcbClientesCPFCNPJ.setBounds(10, 80, 110, 23);
+        jcbClientesCPFCNPJ.setBounds(10, 80, 110, 20);
 
         jcbClientesFantasia.setText("Fantasia");
         jcbClientesFantasia.addActionListener(new java.awt.event.ActionListener() {
@@ -560,7 +560,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesFantasia);
-        jcbClientesFantasia.setBounds(190, 50, 100, 23);
+        jcbClientesFantasia.setBounds(190, 50, 100, 20);
 
         jcbClientesIEIM.setText("Inscrição Est.");
         jcbClientesIEIM.addActionListener(new java.awt.event.ActionListener() {
@@ -569,7 +569,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesIEIM);
-        jcbClientesIEIM.setBounds(190, 80, 100, 23);
+        jcbClientesIEIM.setBounds(190, 80, 100, 20);
 
         jcbClientesCelular.setText("Telefone 2");
         jcbClientesCelular.addActionListener(new java.awt.event.ActionListener() {
@@ -578,7 +578,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesCelular);
-        jcbClientesCelular.setBounds(370, 110, 100, 23);
+        jcbClientesCelular.setBounds(370, 110, 100, 20);
 
         jcbClientesTelefone.setText("Telefone 1");
         jcbClientesTelefone.addActionListener(new java.awt.event.ActionListener() {
@@ -587,7 +587,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesTelefone);
-        jcbClientesTelefone.setBounds(370, 80, 100, 23);
+        jcbClientesTelefone.setBounds(370, 80, 100, 20);
 
         jtfClientesTelefone.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -604,7 +604,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesNome);
-        jcbClientesNome.setBounds(10, 50, 100, 23);
+        jcbClientesNome.setBounds(10, 50, 100, 20);
 
         jtfClientesNome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -624,7 +624,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesContato);
-        jcbClientesContato.setBounds(370, 50, 100, 23);
+        jcbClientesContato.setBounds(370, 50, 100, 20);
 
         jtfClientesEndereco.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -671,7 +671,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesCidade);
-        jcbClientesCidade.setBounds(370, 210, 103, 23);
+        jcbClientesCidade.setBounds(370, 210, 103, 20);
 
         jtfClientesCidade.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -688,7 +688,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesCEP);
-        jcbClientesCEP.setBounds(190, 210, 103, 23);
+        jcbClientesCEP.setBounds(190, 210, 103, 20);
 
         jtfClientesCEP.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -714,7 +714,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jcbClientesEndereco);
-        jcbClientesEndereco.setBounds(10, 180, 90, 23);
+        jcbClientesEndereco.setBounds(10, 180, 90, 20);
 
         jtfClientesComplemento.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -735,7 +735,7 @@ public class Main extends javax.swing.JFrame {
 
         jcbHeaderExistsClient.setText("Meu arquivo contém cabeçalho.");
         jPanel4.add(jcbHeaderExistsClient);
-        jcbHeaderExistsClient.setBounds(10, 10, 270, 23);
+        jcbHeaderExistsClient.setBounds(10, 10, 270, 20);
 
         jtfFormatDateNasc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jtfFormatDateNasc.setText("dd/MM/yyyy");
@@ -747,7 +747,7 @@ public class Main extends javax.swing.JFrame {
         jlFormat.setBounds(20, 140, 50, 30);
 
         jbInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8_info_15px.png"))); // NOI18N
-        jbInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jbInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbInfoActionPerformed(evt);
@@ -758,7 +758,7 @@ public class Main extends javax.swing.JFrame {
 
         jlInfoCidade.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlInfoCidade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8_info_15px.png"))); // NOI18N
-        jlInfoCidade.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jlInfoCidade.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jlInfoCidade.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jlInfoCidadeMouseClicked(evt);
@@ -809,7 +809,7 @@ public class Main extends javax.swing.JFrame {
         jLabel2.setText("Caminho do arquivo (csv/txt separado por ';'):");
 
         jbSeachFileProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8_search_20px.png"))); // NOI18N
-        jbSeachFileProducts.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbSeachFileProducts.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jbSeachFileProducts.setMaximumSize(new java.awt.Dimension(45, 30));
         jbSeachFileProducts.setMinimumSize(new java.awt.Dimension(45, 30));
         jbSeachFileProducts.setPreferredSize(new java.awt.Dimension(45, 30));
@@ -837,7 +837,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jcbProdutosCodBarras);
-        jcbProdutosCodBarras.setBounds(10, 80, 57, 22);
+        jcbProdutosCodBarras.setBounds(10, 80, 55, 22);
 
         jtfProdutosCodBarras.setMaximumSize(new java.awt.Dimension(35, 22));
         jtfProdutosCodBarras.setMinimumSize(new java.awt.Dimension(35, 22));
@@ -948,7 +948,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jcbProdutosEstAtual);
-        jcbProdutosEstAtual.setBounds(370, 80, 110, 23);
+        jcbProdutosEstAtual.setBounds(370, 80, 110, 20);
 
         jtfProdutosVlrVenda.setMaximumSize(new java.awt.Dimension(35, 22));
         jtfProdutosVlrVenda.setMinimumSize(new java.awt.Dimension(35, 22));
@@ -988,7 +988,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jcbProdutosVlrVenda);
-        jcbProdutosVlrVenda.setBounds(370, 140, 100, 23);
+        jcbProdutosVlrVenda.setBounds(370, 140, 100, 20);
 
         jtfProdutosMarca.setMaximumSize(new java.awt.Dimension(35, 22));
         jtfProdutosMarca.setMinimumSize(new java.awt.Dimension(35, 22));
@@ -1008,7 +1008,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jcbProdutosMarca);
-        jcbProdutosMarca.setBounds(10, 110, 107, 23);
+        jcbProdutosMarca.setBounds(10, 110, 107, 20);
 
         jcbProdutosGrupo.setText("Grupo");
         jcbProdutosGrupo.addActionListener(new java.awt.event.ActionListener() {
@@ -1057,7 +1057,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jcbProdutosCFOP);
-        jcbProdutosCFOP.setBounds(190, 140, 107, 23);
+        jcbProdutosCFOP.setBounds(190, 140, 107, 20);
 
         jtfProdutosCFOP.setMaximumSize(new java.awt.Dimension(35, 22));
         jtfProdutosCFOP.setMinimumSize(new java.awt.Dimension(35, 22));
@@ -1088,11 +1088,11 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jcbProdutosClassFiscal);
-        jcbProdutosClassFiscal.setBounds(10, 170, 93, 23);
+        jcbProdutosClassFiscal.setBounds(10, 170, 93, 20);
 
         jcbHeaderExistsProducts.setText("Meu arquivo contém cabeçalho.");
         jPanel8.add(jcbHeaderExistsProducts);
-        jcbHeaderExistsProducts.setBounds(10, 10, 270, 23);
+        jcbHeaderExistsProducts.setBounds(10, 10, 270, 20);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

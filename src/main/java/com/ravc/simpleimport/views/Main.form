@@ -178,7 +178,7 @@
                       <Border info="null"/>
                     </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Default Cursor"/>
+                      <Color id="Cursor Padr&#xe3;o"/>
                     </Property>
                     <Property name="focusable" type="boolean" value="false"/>
                     <Property name="requestFocusEnabled" type="boolean" value="false"/>
@@ -349,7 +349,7 @@
                               <Image iconType="3" name="/icons/icons8_search_20px.png"/>
                             </Property>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Hand Cursor"/>
+                              <Color id="Cursor Padr&#xe3;o"/>
                             </Property>
                             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                               <Dimension value="[45, 30]"/>
@@ -372,7 +372,7 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Importar"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Hand Cursor"/>
+                              <Color id="Cursor Padr&#xe3;o"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -769,7 +769,7 @@
                                   <Image iconType="3" name="/icons/icons8_info_15px.png"/>
                                 </Property>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Hand Cursor"/>
+                                  <Color id="Cursor Padr&#xe3;o"/>
                                 </Property>
                               </Properties>
                               <Events>
@@ -788,7 +788,7 @@
                                   <Image iconType="3" name="/icons/icons8_info_15px.png"/>
                                 </Property>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Hand Cursor"/>
+                                  <Color id="Cursor Padr&#xe3;o"/>
                                 </Property>
                               </Properties>
                               <Events>
@@ -872,7 +872,7 @@
                               <Image iconType="3" name="/icons/icons8_search_20px.png"/>
                             </Property>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Hand Cursor"/>
+                              <Color id="Cursor Padr&#xe3;o"/>
                             </Property>
                             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                               <Dimension value="[45, 30]"/>
