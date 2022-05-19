@@ -1467,10 +1467,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jcbProdutosCodBarrasActionPerformed
 
     private void jtfProdutosCodBarrasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfProdutosCodBarrasKeyTyped
-        String caracteres = "0987654321";
-        if (!caracteres.contains(evt.getKeyChar() + "")) {
-            evt.consume();
-        }
+        typed(evt, jtfProdutosCodBarras);
     }//GEN-LAST:event_jtfProdutosCodBarrasKeyTyped
 
     private void jcbProdutosDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutosDescricaoActionPerformed
